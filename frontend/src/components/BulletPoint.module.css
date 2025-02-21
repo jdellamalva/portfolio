@@ -1,0 +1,32 @@
+/* Bullet Point Animation */
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bulletPoint {
+  margin-bottom: 20px;
+  list-style: none;
+  opacity: 0;
+  animation: slideFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  color: #bbbbbb;
+}
+
+.bulletPoint:nth-child(n) {
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.emphasize {
+  font-weight: 475;
+  color: rgb(68, 199, 195);
+  transition: color 1s ease-in-out, font-weight 0.5s ease-in-out;
+}

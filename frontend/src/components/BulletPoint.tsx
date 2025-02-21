@@ -1,0 +1,47 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+
+import styles from "./BulletPoint.module.css";
+
+interface BulletPointProps {
+  text: string;
+  highlights: string[];
+  emphasisDelay?: number;
+  style?: React.CSSProperties;
+}
+
+export default function BulletPoint({
+  text,
+  highlights,
+  emphasisDelay = 500,
+  style,
+}: BulletPointProps) {
+  const [emphasized, setEmphasized] = useState(false);
+
+  // ✅ Apply emphasis after the delay
+  useEffect(() => {
+    const timer = setTimeout(() => setEmphasized(true), emphasisDelay);
+    return () => clearTimeout(timer);
+  }, [emphasisDelay]);
+
+  // ✅ Convert ALL text (regular & highlighted) into spans for styling
+  const formattedText = text.split(/(\{\d+\})/g).map((part, i) => {
+    const match = part.match(/\{(\d+)\}/);
+    if (match) {
+      const highlightIndex = parseInt(match[1], 10);
+      return (
+        <span key={i} className={emphasized ? styles.emphasize : ""}>
+          {highlights[highlightIndex]}
+        </span>
+      );
+    }
+    return <span key={`${text}-plain-${i}`}>{part}</span>; // ✅ Wrap regular text too
+  });
+
+  return (
+    <li className={styles.bulletPoint} style={style}>
+      {formattedText}
+    </li>
+  );
+}

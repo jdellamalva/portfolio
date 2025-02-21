@@ -1,0 +1,44 @@
+{
+    "summary": "IT & education professional with a background in team management, software solutions, business operations and curriculum design. Skilled in Agile project management, full-stack development, and fostering communication to achieve success in challenging environments. Recognized for leadership, adaptability, attention to detail and drive.",
+    "experience": [
+      {
+        "id": "0",
+        "category": "Work",
+        "title": "Business Analyst",
+        "employer": "Applied Imagination",
+        "location": "Norcross, GA (Remote)",
+        "start": "September 2021",
+        "end": "January 2025",
+        "bulletPoints": [
+          {
+            "text": "Contributed over {0} as Senior Business Analyst, UI/UX Designer & QA, driving {1}",
+            "highlights": ["40 projects", "$3M+ in revenue"]
+          },
+          {
+            "text": "Supported a range of clients, from {0} to {1}, spanning industries such as manufacturing, e-commerce, education, HR, engineering, research & social media",
+            "highlights": ["startups", "globally recognized brands"]
+          },
+          {
+            "text": "Translated client requirements into full design systems, componentized wireframes, and interactive prototypes using {0}, improving stakeholder alignment and reducing development iteration time",
+            "highlights": ["Figma"]
+          },
+          {
+            "text": "Leveraged {0} methodologies and tools like {1} to prioritize stakeholder needs effectively, groom backlogs, bridge gaps, organize sprints, and resolve blockers",
+            "highlights": ["Waterfall & Agile (Scrum)", "Jira, Confluence, and Asana"]
+          },
+          {
+            "text": "Collaborated with {0} at all stages in the {1} to deliver custom mobile and web applications, WordPress sites, and legacy software support",
+            "highlights": ["cross-functional teams", "Software Development Life Cycle (SDLC)"]
+          },
+          {
+            "text": "Defined and executed comprehensive test cases and led {0} workshops",
+            "highlights": ["User Acceptance Testing"]
+          },
+          {
+            "text": "Earned consistent commendations from clients and colleagues for {0}, {1}, and {2}, even in challenging project environments",
+            "highlights": ["exceptional attention to detail", "strong interpersonal skills", "proactive problem-solving"]
+          }
+        ]
+      }
+    ]
+  }

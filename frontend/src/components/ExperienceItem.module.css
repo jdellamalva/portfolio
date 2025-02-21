@@ -1,0 +1,56 @@
+.resumeEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 950px;
+  min-width: 400px;
+}
+
+/* Title Row Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.titleRow {
+  opacity: 1;
+  color: rgb(227, 232, 233);
+  text-shadow: 0px 0px 25px rgba(118, 171, 180, 1);
+  animation: fadeIn 2s ease-out forwards;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.employer,
+.start,
+.end {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.start,
+.end {
+  text-align: center;
+}
+
+.divider {
+  width: 100%;
+  position: relative;
+  height: 0px;
+  border-bottom: 1px dotted var(--foreground);
+  opacity: 0.2;
+}
+
+.bulletPoints {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+  gap: 8px;
+}
