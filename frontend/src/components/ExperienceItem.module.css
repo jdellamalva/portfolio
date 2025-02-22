@@ -18,21 +18,22 @@
 
 .titleRow {
   opacity: 1;
-  color: rgb(227, 232, 233);
-  text-shadow: 0px 0px 25px rgba(118, 171, 180, 1);
+  color: var(--text-icon-primary);
+  text-shadow: 0 0 var(--padding-xl) var(--text-icon-primary);
   animation: fadeIn 2s ease-out forwards;
+  user-select: none;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: var(--font-xxxl);
+  font-weight: var(--font-bold);
 }
 
 .employer,
 .start,
 .end {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: var(--font-xl);
+  font-weight: var(--font-medium);
 }
 
 .start,
@@ -44,7 +45,7 @@
   width: 100%;
   position: relative;
   height: 0px;
-  border-bottom: 1px dotted var(--foreground);
+  border-bottom: 1px dotted var(--text-icon-secondary);
   opacity: 0.2;
 }
 

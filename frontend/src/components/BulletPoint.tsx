@@ -31,7 +31,11 @@ export default function BulletPoint({
     if (match) {
       const highlightIndex = parseInt(match[1], 10);
       return (
-        <span key={i} className={emphasized ? styles.emphasize : ""}>
+        <span
+          key={i}
+          className={emphasized ? styles.emphasize : ""}
+          style={{ "--i": i } as React.CSSProperties}
+        >
           {highlights[highlightIndex]}
         </span>
       );

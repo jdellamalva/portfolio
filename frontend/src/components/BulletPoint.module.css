@@ -18,15 +18,41 @@
   list-style: none;
   opacity: 0;
   animation: slideFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  color: #bbbbbb;
+  color: var(--text-icon-secondary);
+  user-select: none;
+}
+
+.bulletPoint > span:not(.emphasize) {
+  transition: color 0.5s ease-in-out;
+}
+
+.bulletPoint:hover > span:not(.emphasize) {
+  color: var(--text-icon-primary);
+  transition: color 0.2s ease-in-out;
 }
 
 .bulletPoint:nth-child(n) {
   animation-delay: calc(0.1s * var(--i));
 }
 
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 4px rgba(var(--brand-primary), 0.8);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(var(--brand-primary), 1);
+  }
+  100% {
+    text-shadow: 0 0 4px rgba(var(--brand-primary), 0.8);
+  }
+}
+
 .emphasize {
-  font-weight: 475;
-  color: rgb(68, 199, 195);
+  color: var(--brand-primary);
   transition: color 1s ease-in-out, font-weight 0.5s ease-in-out;
+  animation: pulseGlow 1s infinite ease-in-out;
+}
+
+.emphasize:nth-child(n) {
+  transition-delay: calc(0.15s * var(--i));
 }

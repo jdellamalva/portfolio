@@ -1,0 +1,35 @@
+import { TitleBarProps } from "@/types";
+
+import styles from "./TitleBar.module.css";
+
+export default function TitleBar({
+  name,
+  headline,
+  location,
+  email,
+  phone,
+  website,
+}: TitleBarProps) {
+  return (
+    <div className={styles.titleBar}>
+      <div className={styles.nameContainer}>
+        <h1 className={styles.name}>{name}</h1>
+        <h2 className={styles.headline}>{headline}</h2>
+      </div>
+      <ul className={styles.details}>
+        <li className={styles.location}>{location}</li>
+        <li className={styles.email}>{email}</li>
+        <li className={styles.email}>{phone}</li>
+        <li className={styles.website}>
+          <a
+            href={website.startsWith("http") ? website : `https://${website}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {website}
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
+}

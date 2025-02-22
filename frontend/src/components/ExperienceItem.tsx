@@ -31,7 +31,7 @@ export default function Experience({ data }: { data: ExperienceItem }) {
         {data.bulletPoints.map((point, index) => {
           const bullet = (
             <BulletPoint
-              key={index}
+              key={`${data.id}-${index}`}
               text={point.text}
               highlights={point.highlights}
               emphasisDelay={700 + index * 100} // Slight delay stagger

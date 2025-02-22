@@ -1,4 +1,10 @@
 {
+    "name": "Joseph D. Della Malva",
+    "headline": "Project Manager • Business Analyst • Educator",
+    "location": "Based in Lodi, CA",
+    "email": "jdellamalva@gmail.com",
+    "phone": "(650) 686-9406",
+    "website": "linkedin.com/in/jdellamalva/",
     "summary": "IT & education professional with a background in team management, software solutions, business operations and curriculum design. Skilled in Agile project management, full-stack development, and fostering communication to achieve success in challenging environments. Recognized for leadership, adaptability, attention to detail and drive.",
     "experience": [
       {
@@ -39,6 +45,134 @@
             "highlights": ["exceptional attention to detail", "strong interpersonal skills", "proactive problem-solving"]
           }
         ]
-      }
+      },
+      {
+        "id": "1",
+        "category": "Work",
+        "title": "Director",
+        "employer": "Liberty Language Academy",
+        "location": "Orlando, FL",
+        "start": "August 2016",
+        "end": "September 2021",
+        "bulletPoints": [
+          {
+            "text": "Founded, owned, and operated a private language school, scaling to over {0}, driving {1}",
+            "highlights": ["$200,000 annual net profit", "long-term growth and sustainability"]
+          },
+          {
+            "text": "Developed a complete English language curriculum from {0} to {1}, ensuring a structured path to fluency",
+            "highlights": ["absolute beginner", "near-native proficiency"]
+          },
+          {
+            "text": "Conducted {0} certification and ongoing training for a team of {1}, fostering continuous professional development",
+            "highlights": ["TESOL", "10-20 teachers and 3-5 administrators"]
+          },
+          {
+            "text": "Designed and built a custom {0} using {1}, then acted as Product Owner to scale it into a web application",
+            "highlights": ["ERP Student Management System & relational database", "Airtable"]
+          },
+          {
+            "text": "Led the school to achieve {0} after only {1}, the best possible initial result for a private institution",
+            "highlights": ["a 5-year initial accreditation from CEA", "2 years of operations"]
+          },
+          {
+            "text": "Secured {0} certification from {1}, enabling enrollment of {2}",
+            "highlights": ["SEVP", "DHS", "international F-1 visa students"]
+          },
+          {
+            "text": "Matriculated over {0} and managed over {1} as {2}, ensuring compliance and student success",
+            "highlights": ["800 students", "200 international students", "Primary Designated School Official"]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "category": "Work",
+        "title": "Teacher",
+        "employer": "Trinity Preparatory School",
+        "location": "Winter Park, FL",
+        "start": "August 2017",
+        "end": "June 2018",
+        "bulletPoints": [
+          {
+            "text": "Taught {0} at a private school top-ranked in {1}, fostering academic excellence",
+            "highlights": ["7th and 8th grade life and physical science", "STEM"]
+          },
+          {
+            "text": "Led the {0}, achieving {1} for every student at the {2}",
+            "highlights": ["Science Fair Club", "100% medal placement", "regional competition"]
+          },
+          {
+            "text": "Coached the {0} to a {1} at {2} and {3} at the {4}, demonstrating strong mentorship and leadership",
+            "highlights": ["Science Olympiad team", "3rd place regional finish", "regional level", "14th place", "state level"]
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "category": "Work",
+        "title": "Teacher",
+        "employer": "South Creek Middle School",
+        "location": "Orlando, FL",
+        "start": "March 2013",
+        "end": "June 2017",
+        "bulletPoints": [
+          {
+            "text": "Taught {0} at a {1}, delivering engaging STEM instruction",
+            "highlights": ["middle grades (6–8) science", "high-poverty Title I school (>75% free/reduced lunch)"]
+          },
+          {
+            "text": "Served as {0} for {1}, mentoring students in leadership and academic excellence",
+            "highlights": ["National Junior Honor Society Advisor", "2 years"]
+          },
+          {
+            "text": "Secured over {0} in grants for {1}, enhancing classroom resources and student learning",
+            "highlights": ["$7,000", "STEM equipment and reading materials"]
+          },
+          {
+            "text": "Awarded {0} in my first year for {1}, establishing a strong reputation for educational impact",
+            "highlights": ["‘Teacher of the Year’", "innovative and engaging science education"]
+          },
+          {
+            "text": "Awarded the {0} for {1}, recognizing outstanding teaching performance",
+            "highlights": ["$10,000 Florida Best & Brightest Scholarship", "excellent qualifications and evaluation results"]
+          },
+          {
+            "text": "Managed the {0} for {1}, coaching {2} across {3}, achieving {4} out of {5} teams each year",
+            "highlights": ["Science Olympiad team", "2 years", "teams of 15 students", "23 STEM-focused events", "15th & 10th place finishes", "40+"]
+          },
+          {
+            "text": "Coordinated the {0}, achieving {1} across {2}, amounting to about {3} annually",
+            "highlights": ["school-wide science fair", "80-90% participation", "grades 6-8", "900 students"]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "category": "Work",
+        "title": "Academic Coordinator",
+        "employer": "Uceda School of Orlando",
+        "location": "Orlando, FL",
+        "start": "June 2008",
+        "end": "January 2014",
+        "bulletPoints": [
+          {
+            "text": "Taught {0} to students ranging from {1} to {2}, ensuring tailored language instruction",
+            "highlights": ["English as a foreign language", "beginners", "near-native fluency"]
+          },
+          {
+            "text": "Served as {0}, contributing to the school’s {1} and ensuring compliance with {2}",
+            "highlights": ["CEA Self-Study Coordinator", "initial institutional accreditation", "accreditation standards"]
+          },
+          {
+            "text": "Managed {0} across {1}, ensuring operational efficiency and student success",
+            "highlights": ["student and teacher assignments", "two institution branches"]
+          },
+          {
+            "text": "Trained and supported {0}, fostering {1} and maintaining instructional quality",
+            "highlights": ["new teachers", "instructional consistency"]
+          }
+        ]
+      }    
     ]
   }

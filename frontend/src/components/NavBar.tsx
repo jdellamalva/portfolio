@@ -12,7 +12,7 @@ export default function NavBar() {
     <nav className={styles.nav}>
       <ul>
         <li className={pathname === "/" ? "active" : ""}>
-          <Link href="/">Home</Link>
+          <Link href="/">Resume</Link>
         </li>
         <li className={pathname === "/about" ? "active" : ""}>
           <Link href="/about">About</Link>

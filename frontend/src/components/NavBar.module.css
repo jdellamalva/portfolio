@@ -5,6 +5,7 @@
   padding: 20px 0 0 0;
   max-width: 950px;
   min-width: 500px;
+  font-family: var(--font-geist-sans);
 }
 
 .nav ul {
@@ -20,4 +21,12 @@
   min-width: 120px;
   text-align: center;
   flex: 1;
+  color: var(--text-icon-secondary);
+  transition: color 0.5s ease-in-out;
+}
+
+.nav ul li:hover {
+  color: var(--text-icon-primary);
+  font-weight: 500;
+  transition: color 0.5s ease-in-out;
 }
