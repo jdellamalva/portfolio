@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 950px;
-  min-width: 400px;
 }
 
 /* Title Row Animations */

@@ -2,10 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 0 0 0;
-  max-width: 950px;
-  min-width: 500px;
-  font-family: var(--font-geist-sans);
 }
 
 .nav ul {
@@ -13,20 +9,19 @@
   flex-direction: row;
   justify-content: space-between;
   list-style: none;
-  padding: 1.5rem 0;
-  width: 80%;
+  padding: var(--padding-xl) 0;
+  width: 100%;
 }
 
 .nav ul li {
-  min-width: 120px;
-  text-align: center;
   flex: 1;
+  text-align: center;
   color: var(--text-icon-secondary);
-  transition: color 0.5s ease-in-out;
+  transition: color 0.3s ease-in-out, font-weight 0.3s;
 }
 
 .nav ul li:hover {
   color: var(--text-icon-primary);
-  font-weight: 500;
-  transition: color 0.5s ease-in-out;
+  font-weight: var(--font-bold);
+  transition: color 0.3s ease-in-out, font-weight 0.3s;
 }

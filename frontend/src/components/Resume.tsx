@@ -44,12 +44,44 @@ export default function Resume() {
       }
     };
 
+    let touchStartX: number;
+    let touchEndX: number;
+
+    const handleTouchStart = (event: TouchEvent) => {
+      touchStartX = event.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      touchEndX = event.changedTouches[0].clientX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      if (!resumeData) return;
+
+      const swipeThreshold = 50; // Minimum distance for a swipe to register
+      if (touchStartX - touchEndX > swipeThreshold) {
+        // Swiped left (next item)
+        handleClick((currentIndex + 1) % resumeData.experience.length);
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        // Swiped right (previous item)
+        handleClick(
+          (currentIndex - 1 + resumeData.experience.length) %
+            resumeData.experience.length
+        );
+      }
+    };
+
     window.addEventListener("keydown", handleKeyPress);
     window.addEventListener("wheel", handleScroll);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
       window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [resumeData, currentIndex]); // navigation event listeners
 
@@ -66,37 +98,39 @@ export default function Resume() {
   if (!resumeData) return <></>;
 
   return (
-    <div className={styles.resume}>
-      {resumeData && (
-        <>
-          <TitleBar
-            name={resumeData.name}
-            headline={resumeData.headline}
-            location={resumeData.location}
-            email={resumeData.email}
-            phone={resumeData.phone}
-            website={resumeData.website}
-          />
-          <div className={styles.resumeNav}>
-            {resumeData.experience.map((_, i) => (
-              <div
-                key={i}
-                className={`${styles.resumeItem} ${
-                  i === currentIndex ? styles.active : ""
-                }`}
-                onClick={() => handleClick(i)}
-              ></div>
-            ))}
-          </div>
-          <div
-            className={`${styles.experienceContainer} ${
-              fade ? styles.fadeIn : styles.fadeOut
-            }`}
-          >
-            <Experience data={resumeData.experience[currentIndex]} />
-          </div>
-        </>
-      )}
-    </div>
+    <main className={styles.main}>
+      <div className={styles.resume}>
+        {resumeData && (
+          <>
+            <TitleBar
+              name={resumeData.name}
+              headline={resumeData.headline}
+              location={resumeData.location}
+              email={resumeData.email}
+              phone={resumeData.phone}
+              website={resumeData.website}
+            />
+            <div className={styles.resumeNav}>
+              {resumeData.experience.map((_, i) => (
+                <div
+                  key={i}
+                  className={`${styles.resumeItem} ${
+                    i === currentIndex ? styles.active : ""
+                  }`}
+                  onClick={() => handleClick(i)}
+                ></div>
+              ))}
+            </div>
+            <div
+              className={`${styles.experienceContainer} ${
+                fade ? styles.fadeIn : styles.fadeOut
+              }`}
+            >
+              <Experience data={resumeData.experience[currentIndex]} />
+            </div>
+          </>
+        )}
+      </div>
+    </main>
   );
 }
