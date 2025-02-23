@@ -15,7 +15,43 @@ export default function Resume() {
     fetch("/resume.json") // Simulate fetching from a server
       .then((res) => res.json())
       .then((data) => setResumeData(data));
-  }, []);
+  }, []); // fetch data
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (!resumeData) return;
+
+      if (event.key === "d" || event.key === "ArrowRight") {
+        handleClick((currentIndex + 1) % resumeData.experience.length);
+      } else if (event.key === "a" || event.key === "ArrowLeft") {
+        handleClick(
+          (currentIndex - 1 + resumeData.experience.length) %
+            resumeData.experience.length
+        );
+      }
+    };
+
+    const handleScroll = (event: WheelEvent) => {
+      if (!resumeData) return;
+
+      if (event.deltaY > 0) {
+        handleClick((currentIndex + 1) % resumeData.experience.length);
+      } else if (event.deltaY < 0) {
+        handleClick(
+          (currentIndex - 1 + resumeData.experience.length) %
+            resumeData.experience.length
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("wheel", handleScroll);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, [resumeData, currentIndex]); // navigation event listeners
 
   const handleClick = (index: number) => {
     if (index === currentIndex) return; // Prevent unnecessary state updates

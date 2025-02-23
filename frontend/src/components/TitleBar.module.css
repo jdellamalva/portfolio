@@ -46,8 +46,13 @@
   }
 }
 
-.details li a {
-  color: inherit;
+.details li {
+  color: var(--text-icon-secondary);
+  transition: color 0.3s;
+}
+
+.details li:hover {
+  color: var(--text-icon--primary);
   transition: color 0.3s;
 }
 
