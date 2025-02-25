@@ -25,3 +25,8 @@
   font-weight: var(--font-bold);
   transition: color 0.3s ease-in-out, font-weight 0.3s;
 }
+
+.nav ul li.active {
+  color: var(--text-icon-primary);
+  font-weight: var(--font-bold);
+}

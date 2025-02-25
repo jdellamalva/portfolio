@@ -1,46 +1,58 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./ExperienceItem.module.css";
 import BulletPoint from "./BulletPoint";
 import { ExperienceItem } from "../types";
 
 export default function Experience({ data }: { data: ExperienceItem }) {
+  const scrollableRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollableRef.current) {
+      scrollableRef.current.scrollTop = 0;
+    }
+  }, [data]);
+
   return (
     <div className={styles.resumeEntry}>
-      <div className={`${styles.titleRow}`} style={{ marginBottom: "8px" }}>
+      <div className={`${styles.titleRow}`}>
         <div className={styles.title}>{data.title}</div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
+        <div className={styles.jobInfoContainer}>
           <div className={styles.employer}>{data.employer}</div>
           <div className={styles.location}>{data.location}</div>
-          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-            <div className={styles.start}>{data.start}</div> to
-            <div className={styles.end}>{data.end}</div>
+          <div className={styles.dateContainer}>
+            <div
+              className={styles.start}
+              data-full={data.start}
+              data-short={`${data.start.slice(0, 3)} ${data.start.slice(-4)}`}
+            ></div>
+            to
+            <div
+              className={styles.end}
+              data-full={data.end}
+              data-short={`${data.end.slice(0, 3)} ${data.end.slice(-4)}`}
+            ></div>
           </div>
         </div>
       </div>
       <div className={styles.divider}></div>
-      <ul className={styles.bulletPoints}>
-        {data.bulletPoints.map((point, index) => {
-          const bullet = (
-            <BulletPoint
-              key={`${data.id}-${index}`}
-              text={point.text}
-              highlights={point.highlights}
-              emphasisDelay={700 + index * 100} // Slight delay stagger
-              style={{ animationDelay: `${0.1 * (index + 1)}s` }}
-            />
-          );
-          return bullet;
-        })}
-      </ul>
+      <div className={styles.scrollable}>
+        <ul className={styles.bulletPoints}>
+          {data.bulletPoints.map((point, index) => {
+            const bullet = (
+              <BulletPoint
+                key={`${data.id}-${index}`}
+                text={point.text}
+                highlights={point.highlights}
+                emphasisDelay={700 + index * 100} // Slight delay stagger
+                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+              />
+            );
+            return bullet;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

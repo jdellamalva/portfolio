@@ -20,6 +20,17 @@
   text-shadow: 0 0 var(--padding-xl) var(--text-icon-primary);
   animation: fadeIn 2s ease-out forwards;
   user-select: none;
+  margin-bottom: 8px;
+}
+
+.jobInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap; /* Allows wrapping if needed */
+  gap: 8px; /* Space between elements */
+  min-width: 0; /* Allows flex items to shrink */
 }
 
 .title {
@@ -34,9 +45,21 @@
   font-weight: var(--font-medium);
 }
 
+.dateContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Keeps spacing between elements */
+  flex-wrap: nowrap; /* Ensures everything stays in one line */
+}
+
 .start,
 .end {
   text-align: center;
+}
+
+.start::after,
+.end::after {
+  content: attr(data-full);
 }
 
 .divider {
@@ -52,4 +75,57 @@
   flex-direction: column;
   padding-top: 2px;
   gap: 8px;
+}
+
+.scrollable {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 350px);
+  padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .scrollable {
+    max-height: calc(100vh - 315px);
+  }
+}
+
+@media (max-width: 640px) {
+  .scrollable {
+    max-height: calc(100vh - 285px);
+  }
+  .start::after,
+  .end::after {
+    content: attr(data-short); /* Show short version */
+  }
+  .start,
+  .end {
+    content: none; /* Hide full text */
+  }
+  .location {
+    display: none;
+  }
+  .titleRow {
+    margin-bottom: 0;
+  }
+  .title {
+    font-size: var(--font-xxl);
+  }
+  .employer {
+    font-weight: var(--font-regular);
+  }
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 6px;
+  padding-bottom: var(--padding-md);
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
 }

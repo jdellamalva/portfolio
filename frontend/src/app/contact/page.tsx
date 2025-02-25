@@ -1,3 +1,23 @@
-export default function Contact() {
-  return <h1>Contact Page</h1>;
+import type { Metadata } from "next";
+
+import Contact from "@/components/Contact";
+import NavBar from "@/components/NavBar";
+
+export const metadata: Metadata = {
+  title: "JDM | Contact",
+  description: "How to contact me",
+};
+
+export default function ContactPage() {
+  return (
+    <div className="container">
+      <NavBar />
+      <h1>Hey There</h1>
+      <p>
+        The contact component contacts OpenAI and returns a recipe for
+        guacamole. But that costs me money which is why I'm showing you this
+        instead. For now...
+      </p>
+    </div>
+  );
 }

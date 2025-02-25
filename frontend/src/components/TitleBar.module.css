@@ -23,12 +23,60 @@
 }
 
 .details {
-  font-size: var(--font-md);
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  align-items: center;
+  list-style: none;
+  gap: var(--padding-md);
+  overflow: hidden; /* Prevent content overflow */
+  width: 100%;
+  justify-content: center;
 }
 
-.details li {
-  text-decoration: none;
-  color: var(--text-icon-secondary);
+.details .location {
+  flex-shrink: 1;
+  white-space: nowrap;
+}
+
+.details .email,
+.details.phone {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.details .website {
+  flex-shrink: 2; /* Shrinks more than the location */
+  min-width: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.websiteText {
+  display: inline;
+}
+
+.websiteIcon {
+  display: none;
+}
+
+/* Hide location first */
+@media (max-width: 768px) {
+  .details .location {
+    display: none;
+  }
+}
+
+/* Hide website text and show icon second */
+@media (max-width: 640px) {
+  .websiteText {
+    display: none;
+  }
+  .websiteIcon {
+    display: inline;
+  }
 }
 
 @keyframes pulseGlow {
@@ -48,10 +96,28 @@
   transition: color 0.3s;
 }
 
-@media (max-width: 894px) {
-  .details .location {
-    display: none;
-  }
+.details .phone {
+  white-space: nowrap; /* Prevents phone number from wrapping */
+  flex-shrink: 0; /* Ensures it doesn't shrink */
+}
+
+.details .website {
+  flex-shrink: 1; /* Allow this element to shrink first */
+  min-width: 24px; /* Ensure a minimum size for the icon */
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Adds spacing between text and icon */
+}
+
+/* Default: Show website text, hide icon */
+.websiteText {
+  display: inline;
+}
+
+.websiteIcon {
+  display: none;
 }
 
 .details li:hover {
@@ -69,17 +135,21 @@
   color: inherit;
 }
 
-.details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  list-style: none;
-  gap: var(--padding-xl);
-}
-
 .nameContainer {
   padding-bottom: var(--padding-md);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .nameContainer {
+    padding-bottom: var(--padding-sm);
+  }
+  .websiteText {
+    display: none;
+  }
+  .websiteIcon {
+    display: inline;
+  }
 }

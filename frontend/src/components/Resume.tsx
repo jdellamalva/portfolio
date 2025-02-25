@@ -31,19 +31,6 @@ export default function Resume() {
       }
     };
 
-    const handleScroll = (event: WheelEvent) => {
-      if (!resumeData) return;
-
-      if (event.deltaY > 0) {
-        handleClick((currentIndex + 1) % resumeData.experience.length);
-      } else if (event.deltaY < 0) {
-        handleClick(
-          (currentIndex - 1 + resumeData.experience.length) %
-            resumeData.experience.length
-        );
-      }
-    };
-
     let touchStartX: number;
     let touchEndX: number;
 
@@ -73,13 +60,11 @@ export default function Resume() {
     };
 
     window.addEventListener("keydown", handleKeyPress);
-    window.addEventListener("wheel", handleScroll);
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
-      window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
     };

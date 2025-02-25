@@ -14,12 +14,24 @@
 }
 
 .bulletPoint {
-  margin-bottom: 20px;
+  margin-bottom: var(--padding-lg);
   list-style: none;
   opacity: 0;
   animation: slideFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   color: var(--text-icon-secondary);
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .bulletPoint {
+    margin-bottom: var(--padding-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .bulletPoint {
+    margin-bottom: var(--padding-sm);
+  }
 }
 
 .bulletPoint > span:not(.emphasize) {
