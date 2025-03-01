@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import NavBar from "@/components/NavBar";
-import DotGrid from "@/components/DotGrid";
+import DotGrid from "@/components/About/DotGrid/DotGrid";
 
 export const metadata: Metadata = {
   title: "JDM | About",

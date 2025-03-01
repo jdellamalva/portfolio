@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TitleBar from "./TitleBar";
-import Experience from "./ExperienceItem";
-import { ResumeData } from "../types";
+import TitleBar from "./TitleBar/TitleBar";
+import Experience from "./Experience/Experience";
 import styles from "./Resume.module.css";
+
+export interface ResumeData {
+  name: string;
+  headline: string;
+  location: string;
+  email: string;
+  phone: string;
+  website: string;
+  summary: string;
+  experience: ExperienceItem[];
+}
 
 export default function Resume() {
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);

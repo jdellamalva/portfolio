@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Contact from "@/components/Contact";
+import Contact from "@/components/Contact/Contact";
 import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {

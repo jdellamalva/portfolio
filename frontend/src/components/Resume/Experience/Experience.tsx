@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import styles from "./ExperienceItem.module.css";
-import BulletPoint from "./BulletPoint";
-import { ExperienceItem } from "../types";
+import { useRef, useEffect } from "react";
+import styles from "./Experience.module.css";
+import BulletPoint from "../BulletPoint";
+import type { ExperienceProps } from "./Experience.types"
 
-export default function Experience({ data }: { data: ExperienceItem }) {
+export default function Experience({ data }: { data: ExperienceProps }) {
   const scrollableRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Experience({ data }: { data: ExperienceItem }) {
                 key={`${data.id}-${index}`}
                 text={point.text}
                 highlights={point.highlights}
-                emphasisDelay={700 + index * 100} // Slight delay stagger
+                emphasisDelay={700 + index * 100}
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               />
             );

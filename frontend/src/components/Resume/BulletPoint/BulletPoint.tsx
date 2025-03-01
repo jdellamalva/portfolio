@@ -1,15 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./BulletPoint.module.css";
+import type { BulletPointProps } from "./BulletPoint.types";
 
-interface BulletPointProps {
-  text: string;
-  highlights: string[];
-  emphasisDelay?: number;
-  style?: React.CSSProperties;
-}
 
 export default function BulletPoint({
   text,

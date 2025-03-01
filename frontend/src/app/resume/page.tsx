@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import NavBar from "@/components/NavBar";
-import Resume from "@/components/Resume";
+import Resume from "@/components/Resume/Resume";
 
 export const metadata: Metadata = {
   title: "JDM | Resume",

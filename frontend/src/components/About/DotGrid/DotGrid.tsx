@@ -3,10 +3,10 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
 import { InstancedMesh, Object3D } from "three";
-import { DotManager } from "../app/classes/DotManager";
-import AboutDebug from "@/components/AboutDebug";
-import NavBar from "./NavBar";
-import MercatorMap from "./MercatorMap";
+import { DotManager } from "../../../app/classes/DotManager";
+import AboutDebug from "@/components/About/AboutDebug/AboutDebug";
+import NavBar from "../../NavBar";
+import MercatorMap from "../MercatorMap/MercatorMap";
 import styles from "./DotGrid.module.css";
 
 export default function DotGrid() {
