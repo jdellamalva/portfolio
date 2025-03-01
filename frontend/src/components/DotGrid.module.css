@@ -1,0 +1,26 @@
+.navbarContainer {
+  width: 90%;
+  max-width: calc(950px - var(--padding-xl));
+  margin: 0 auto;
+  height: auto; /* or a specific height */
+}
+
+.canvasContainer {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Apply the same responsive breakpoints */
+@media (max-width: 768px) {
+  .navbar {
+    width: 95%;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    width: 92%;
+  }
+}

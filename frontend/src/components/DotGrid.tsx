@@ -1,85 +1,100 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useState, useEffect } from "react";
+import { InstancedMesh, Object3D } from "three";
+import { DotManager } from "../app/classes/DotManager";
+import AboutDebug from "@/components/AboutDebug";
+import NavBar from "./NavBar";
+import MercatorMap from "./MercatorMap";
+import styles from "./DotGrid.module.css";
 
 export default function DotGrid() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const animationRef = useRef<number | null>(null);
-  const [navHeight, setNavHeight] = useState<number>(0);
+  const [showMap, setShowMap] = useState(false);
+  const [showTooltips, setShowTooltips] = useState(false);
+  const meshRef = useRef<InstancedMesh>(null!);
+  const navRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [navHeight, setNavHeight] = useState(50);
+  const [canvasSize, setCanvasSize] = useState({ width: 10, height: 5 });
+
+  const dotManager = DotManager.getInstance();
 
   useEffect(() => {
-    const calculateNavHeight = () => {
-      const nav = document.querySelector("nav");
-      const height = nav ? nav.getBoundingClientRect().height : 0;
-      setNavHeight(height);
+    console.log("Initializing DotGrid...");
+
+    dotManager.initiate();
+
+    if (navRef.current) {
+      setNavHeight(navRef.current.offsetHeight);
+    }
+
+    const handleResize = () => {
+      if (mapRef.current) {
+        const rect = mapRef.current.getBoundingClientRect();
+        const width = rect.width / 100;
+        const height = rect.height / 100;
+
+        console.log(`📏 Resizing grid: ${width}x${height}`);
+        setCanvasSize({ width, height });
+        dotManager.updateGrid(width, height);
+      }
     };
 
-    calculateNavHeight();
-
-    window.addEventListener("resize", calculateNavHeight);
-    return () => window.removeEventListener("resize", calculateNavHeight);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  function DotUpdater() {
+    const dummy = new Object3D();
+    useFrame(() => {
+      if (!meshRef.current) return;
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight - navHeight;
-    };
+      const activeDots = dotManager.activeDots;
+      for (let i = 0; i < activeDots.length; i++) {
+        const dot = activeDots[i];
+        dummy.position.copy(dot.object.position);
+        dummy.updateMatrix();
+        meshRef.current.setMatrixAt(i, dummy.matrix);
+      }
+      meshRef.current.instanceMatrix.needsUpdate = true;
+    });
+    return null;
+  }
 
-    resizeCanvas();
+  return (
+    <>
+      <div ref={navRef} className={styles.navbarContainer}>
+        <NavBar />
+      </div>
 
-    window.addEventListener("resize", resizeCanvas);
-    return () => window.removeEventListener("resize", resizeCanvas);
-  }, [navHeight]);
+      {showMap && (
+        <div ref={mapRef}>
+          <MercatorMap navHeight={navHeight} />
+        </div>
+      )}
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[5, 5, 5]} />
+        <DotUpdater />
 
-    const draw = () => {
-      reset(ctx, canvas);
-      drawGreenCircle(ctx, canvas);
-    };
+        <instancedMesh
+          ref={meshRef}
+          args={[undefined, undefined, dotManager.activeDots.length]}
+        >
+          <sphereGeometry args={[0.05, 8, 8]} />
+          <meshStandardMaterial vertexColors />
+        </instancedMesh>
+      </Canvas>
 
-    const update = () => {
-      // call update methods here
-    };
-
-    const animate = () => {
-      update();
-      draw();
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} />;
+      <AboutDebug
+        showMap={showMap}
+        setShowMap={setShowMap}
+        showTooltips={showTooltips}
+        setShowTooltips={setShowTooltips}
+      />
+    </>
+  );
 }
-
-const reset = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-};
-
-const drawGreenCircle = (
-  ctx: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement
-) => {
-  const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
-  const radius = 50;
-
-  ctx.fillStyle = "green";
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-  ctx.fill();
-};
