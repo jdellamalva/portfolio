@@ -3,9 +3,8 @@
 import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 
-import { TitleBarProps } from "@/types";
-
 import styles from "./TitleBar.module.css";
+import { TitleBarProps } from "./"
 
 export default function TitleBar({
   name,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import NavBar from "@/components/NavBar";
+import ProjectGrid from "@/components/Projects/ProjectGrid"
 
 export const metadata: Metadata = {
   title: "JDM | Projects",
@@ -11,7 +12,7 @@ export default function ProjectsPage() {
   return (
     <div className="container">
       <NavBar />
-      <h1>Projects Page</h1>
+      <ProjectGrid />
     </div>
   );
 }
