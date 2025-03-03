@@ -8,20 +8,20 @@
     },
     {
         "id": 2,
-      "title": "Beta Initiative",
-      "description": "A deep dive into the future of web technologies.",
+      "title": "Run Like Hell",
+      "description": "Work in progress: a rail-runner platform game to teach myself C# and Unity.",
       "mediaType": "none"
     },
     {
         "id": 3,
-      "title": "Gamma Framework",
-      "description": "Building a lightweight, efficient, and scalable framework.",
+      "title": "Untitled Recipe App",
+      "description": "A recipe application I'm making to teach myself React Native.",
       "mediaType": "none"
     },
     {
         "id": 4,
-      "title": "Delta Analytics",
-      "description": "A data-driven project providing insights on trends.",
+      "title": "Untitled Assistant App",
+      "description": "An agentic LLM chat wrapper leveraging a Firebase serverless setup.",
       "mediaType": "none"
     }
   ]

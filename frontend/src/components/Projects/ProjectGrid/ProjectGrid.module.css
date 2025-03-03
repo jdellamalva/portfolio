@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-start;
-  align-items: flex-start; /* Ensures items align at the top */
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 .gridItem {
