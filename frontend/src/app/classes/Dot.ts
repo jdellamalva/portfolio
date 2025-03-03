@@ -1,25 +1,27 @@
-import { Object3D } from "three";
-
-export class Dot {
-  object: Object3D;
-  active: boolean;
-
-  constructor() {
-    this.object = new Object3D();
-    this.active = false;
+export default class Dot {
+    x: number;
+    y: number;
+    radius: number;
+    isSea: boolean;
+    fillStyle: string;
+  
+    constructor(x: number, y: number, radius: number, isSea: boolean) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.isSea = isSea;
+      this.fillStyle = isSea ? "purple" : "orange"; // Default colors for sea/land
+    }
+  
+    draw(ctx: CanvasRenderingContext2D) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.fillStyle;
+      ctx.fill();
+    }
+  
+    updateColor(newColor: string) {
+      this.fillStyle = newColor;
+    }
   }
-
-  activate(x: number, y: number, z: number) {
-    this.object.position.set(x, y, z);
-    this.active = true;
-  }
-
-  deactivate() {
-    this.active = false;
-  }
-
-  update() {
-    if (!this.active) return;
-    // Placeholder for future animations and interactions
-  }
-}
+  

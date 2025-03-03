@@ -7,6 +7,7 @@ const CanvasMapSquare = dynamic(() => import("./CanvasMapSquare"), {
   ssr: false,
 });
 const DotGrid = dynamic(() => import("./DotGrid"), { ssr: false });
+const DotGrid2 = dynamic(() => import("./DotGrid2"), { ssr: false });
 
 export default function MapDots() {
   const [imageData, setImageData] = useState<ImageData | null>(null);
@@ -32,7 +33,7 @@ export default function MapDots() {
   return (
     <>
       {/* <CanvasMapSquare /> */}
-      {imageData && <DotGrid density={100} imageData={imageData} />}
+      {imageData && <DotGrid2 density={100} imageData={imageData} />}
     </>
   );
 }

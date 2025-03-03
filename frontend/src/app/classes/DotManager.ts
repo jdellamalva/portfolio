@@ -1,76 +1,61 @@
-import { Dot } from "./Dot";
+import Dot from "./Dot";
 
-export class DotManager {
-  private static instance: DotManager;
-  private pool: Dot[] = [];
-  public activeDots: Dot[] = [];
-  private mode: string = "default";
-  private dpi: number = 10; // Default DPI value
-  private readonly MAX_DOTS = 5000;
+export default class DotManager {
+  dots: Dot[] = [];
+  density: number;
+  imageData: ImageData;
 
-  private constructor() {
-    for (let i = 0; i < this.MAX_DOTS; i++) {
-      this.pool.push(new Dot());
-    }
+  constructor(density: number, imageData: ImageData) {
+    this.density = density;
+    this.imageData = imageData;
+    this.generateDots();
   }
 
-  static getInstance(): DotManager {
-    if (!DotManager.instance) {
-      DotManager.instance = new DotManager();
-    }
-    return DotManager.instance;
-  }
+  generateDots() {
+    const imgWidth = this.imageData.width;
+    const imgHeight = this.imageData.height;
 
-  initiate(dpi: number = this.dpi) {
-    this.dpi = dpi;
-    console.log(`🚀 Initializing DotManager with DPI: ${this.dpi}`);
-    this.updateGrid(10, 5); // Default size, will be updated by DotGrid
-  }
+    const dotsPerPixel = this.density / 10000;
+    const spacing = Math.sqrt(1 / dotsPerPixel);
+    const minSpacing = 5;
+    const maxSpacing = 100;
+    const effectiveSpacing = Math.min(maxSpacing, Math.max(minSpacing, spacing));
+    const radius = Math.max(1, Math.min(10, effectiveSpacing / 4));
 
-  updateGrid(canvasWidth: number, canvasHeight: number) {
-    this.activeDots = [];
+    const canvasWidth = window.innerWidth;
+    const canvasHeight = window.innerHeight;
 
-    // Calculate number of dots based on DPI
-    const cols = Math.floor(canvasWidth * this.dpi);
-    const rows = Math.floor(canvasHeight * this.dpi);
-    const spacingX = canvasWidth / cols;
-    const spacingY = canvasHeight / rows;
+    const imgAspectRatio = imgWidth / imgHeight;
+    const tileHeight = canvasHeight;
+    const tileWidth = tileHeight * imgAspectRatio;
+    const centerX = canvasWidth / 2 - tileWidth / 2;
 
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-        if (this.activeDots.length >= this.MAX_DOTS) return;
+    for (let x = centerX % effectiveSpacing; x < canvasWidth; x += effectiveSpacing) {
+      for (let y = (canvasHeight / 2) % effectiveSpacing; y < canvasHeight; y += effectiveSpacing) {
+        const imgX = Math.floor(((x - centerX) / tileWidth) * imgWidth) % imgWidth;
+        const imgY = Math.floor((y / tileHeight) * imgHeight);
 
-        const x = col * spacingX - canvasWidth / 2;
-        const y = row * spacingY - canvasHeight / 2;
+        const index = (imgY * imgWidth + imgX) * 4;
+        const r = this.imageData.data[index];
+        const g = this.imageData.data[index + 1];
+        const b = this.imageData.data[index + 2];
 
-        const dot = this.getDot(x, y, 0);
-        if (!dot) continue;
+        const isSea = b > r + 4 && b > g + 4; // Using iceOffset = 4 for water detection
+
+        this.dots.push(new Dot(x, y, radius, isSea));
       }
     }
-
-    console.log(`✅ Dots created: ${this.activeDots.length}`);
   }
 
-  getDot(x: number, y: number, z: number): Dot | null {
-    if (this.pool.length === 0) return null;
-    const dot = this.pool.pop()!;
-    dot.activate(x, y, z);
-    this.activeDots.push(dot);
-    return dot;
+  drawDots(ctx: CanvasRenderingContext2D) {
+    this.dots.forEach((dot) => dot.draw(ctx));
   }
 
-  releaseDot(dot: Dot) {
-    dot.deactivate();
-    this.activeDots = this.activeDots.filter(d => d !== dot);
-    this.pool.push(dot);
-  }
-
-  updateDots() {
-    this.activeDots.forEach(dot => dot.update());
-  }
-
-  setDPI(dpi: number) {
-    this.dpi = dpi;
-    this.initiate(dpi);
+  updateDotColor(condition: (dot: Dot) => boolean, newColor: string) {
+    this.dots.forEach((dot) => {
+      if (condition(dot)) {
+        dot.updateColor(newColor);
+      }
+    });
   }
 }
