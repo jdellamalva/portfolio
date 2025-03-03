@@ -1,6 +1,0 @@
-.mercator-map {
-  position: absolute;
-  top: var(--navbar-height);
-  width: 100vw;
-  height: calc(100vh - var(--navbar-height));
-}

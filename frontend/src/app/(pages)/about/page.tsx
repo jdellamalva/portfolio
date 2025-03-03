@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
-import NavBar from "@/components/NavBar";
-import DotGrid from "@/components/About/DotGrid/DotGrid";
+import CanvasMapSquare from "@/components/About/CanvasMapSquare";
+import DotGrid from "@/components/About/DotGrid";
+
+import MapDots from "@/components/About/MapDots";
 
 export const metadata: Metadata = {
   title: "JDM | About",
@@ -9,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <DotGrid />;
+  return <MapDots />;
 }
