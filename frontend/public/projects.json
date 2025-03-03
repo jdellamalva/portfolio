@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+        "title": "This Portfolio",
+      "description": "A personal portfolio built in NextJS and Typescript.",
+      "mediaType": "gif",
+      "mediaSrc": "/gifs/boom-mind-blown.gif"
+    },
+    {
+        "id": 2,
+      "title": "Beta Initiative",
+      "description": "A deep dive into the future of web technologies.",
+      "mediaType": "none"
+    },
+    {
+        "id": 3,
+      "title": "Gamma Framework",
+      "description": "Building a lightweight, efficient, and scalable framework.",
+      "mediaType": "none"
+    },
+    {
+        "id": 4,
+      "title": "Delta Analytics",
+      "description": "A data-driven project providing insights on trends.",
+      "mediaType": "none"
+    }
+  ]
+  

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import Contact from "@/components/Contact/Contact";
-import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "JDM | Contact",
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="container">
-      <NavBar />
       <h1>Hey There</h1>
       <p>
         The contact component contacts OpenAI and returns a recipe for

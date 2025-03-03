@@ -49,33 +49,3 @@
 .experienceContainer {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
-.fadeIn {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fadeOut {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  align-items: normal;
-  justify-items: center;
-  min-height: 100svh;
-  padding: var(--padding-xl);
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-}

@@ -1,19 +1,59 @@
 .grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: 1fr; /* Default: 1 column on small screens */
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start; /* Ensures items align at the top */
+}
+
+.gridItem {
+  user-select: none;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: flex-basis 0.3s ease-in-out, transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    max-height 0.3s ease-in-out;
+  flex: 1 1 calc(100% - 32px); /* Default: single column */
+  max-width: calc(100% - 32px);
+}
+
+@media (min-width: 640px) {
+  .gridItem {
+    flex: 1 1 calc(50% - 16px); /* Two columns */
+    max-width: calc(50% - 16px);
   }
-  
-  @media (min-width: 640px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns between 640px and 768px */
-    }
+}
+
+@media (min-width: 768px) {
+  .gridItem {
+    flex: 1 1 calc(33.33% - 16px); /* Three columns */
+    max-width: calc(33.33% - 16px);
   }
-  
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr); /* 3 columns on screens wider than 768px */
-    }
-  }
-  
+}
+
+/* Selected item expands smoothly */
+.selected {
+  flex: 1 1 100%;
+  max-width: 100%;
+  box-shadow: 0px 0px 0px 2px var(--brand-primary);
+  background-color: var(--background-overlay);
+  transition: flex-basis 0.3s ease-in-out, max-width 0.3s ease-in-out,
+    height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Ensure hover effect doesn't conflict */
+.gridItem:hover:not(.selected) {
+  transform: translateY(-4px);
+  background-color: var(--background-overlay);
+}
+
+/* Fix issue of items shifting unexpectedly */
+.focusMode .gridItem:not(.selected) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}

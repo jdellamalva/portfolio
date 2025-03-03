@@ -5,7 +5,6 @@ import { useRef, useState, useEffect } from "react";
 import { InstancedMesh, Object3D } from "three";
 import { DotManager } from "../../../app/classes/DotManager";
 import AboutDebug from "@/components/About/AboutDebug/AboutDebug";
-import NavBar from "../../NavBar";
 import MercatorMap from "../MercatorMap/MercatorMap";
 import styles from "./DotGrid.module.css";
 
@@ -13,9 +12,7 @@ export default function DotGrid() {
   const [showMap, setShowMap] = useState(false);
   const [showTooltips, setShowTooltips] = useState(false);
   const meshRef = useRef<InstancedMesh>(null!);
-  const navRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
-  const [navHeight, setNavHeight] = useState(50);
   const [canvasSize, setCanvasSize] = useState({ width: 10, height: 5 });
 
   const dotManager = DotManager.getInstance();
@@ -24,10 +21,6 @@ export default function DotGrid() {
     console.log("Initializing DotGrid...");
 
     dotManager.initiate();
-
-    if (navRef.current) {
-      setNavHeight(navRef.current.offsetHeight);
-    }
 
     const handleResize = () => {
       if (mapRef.current) {
@@ -65,13 +58,9 @@ export default function DotGrid() {
 
   return (
     <>
-      <div ref={navRef} className={styles.navbarContainer}>
-        <NavBar />
-      </div>
-
       {showMap && (
         <div ref={mapRef}>
-          <MercatorMap navHeight={navHeight} />
+          <MercatorMap />
         </div>
       )}
 

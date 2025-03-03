@@ -1,10 +1,3 @@
-.navbarContainer {
-  width: 90%;
-  max-width: calc(950px - var(--padding-xl));
-  margin: 0 auto;
-  height: auto; /* or a specific height */
-}
-
 .canvasContainer {
   position: absolute;
   left: 0;

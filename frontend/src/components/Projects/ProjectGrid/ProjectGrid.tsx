@@ -2,49 +2,45 @@
 
 import { useState, useEffect } from "react";
 import ProjectCard from "../ProjectCard";
-
 import styles from "./ProjectGrid.module.css";
 import type { ProjectGridProps } from "./ProjectGrid.types";
-import type { ProjectCardProps } from "../ProjectCard"
+import type { ProjectCardProps } from "../ProjectCard";
 
-const dummyProjects: ProjectCardProps[] = [
-    {
-      title: "Project Alpha",
-      description: "An experimental project exploring new concepts.",
-      mediaType: "none",
-    },
-    {
-      title: "Beta Initiative",
-      description: "A deep dive into the future of web technologies.",
-      mediaType: "none",
-    },
-    {
-      title: "Gamma Framework",
-      description: "Building a lightweight, efficient, and scalable framework.",
-      mediaType: "none",
-    },
-    {
-      title: "Delta Analytics",
-      description: "A data-driven project providing insights on trends.",
-      mediaType: "none",
-    }
-  ];
+const ProjectGrid: React.FC<ProjectGridProps> = () => {
+  const [projects, setProjects] = useState<ProjectCardProps[]>([]);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [fade, setFade] = useState(false);
 
-const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
+  useEffect(() => {
+    fetch("/projects.json")
+      .then((res) => res.json())
+      .then((data: ProjectCardProps[]) => setProjects(data));
+  }, []);
 
-// const [projectData, setProjectData] = useState([]);
+  useEffect(() => {
+    setFade(true);
+  }, []);
 
-//   useEffect(() => {
-//     fetch("/projects.json") // Simulate fetching from a server
-//       .then((res) => res.json())
-//       .then((data) => setProjectData(data));
-//   }, []); // fetch data
-
+  const handleCardClick = (id: number) => {
+    setSelectedProject(selectedProject === id ? null : id);
+  };
 
   return (
-    <div className={styles.grid}>
-      {dummyProjects.map((project, index) => (
-        <ProjectCard key={index} {...project} />
+    <div
+      className={`${styles.grid} ${fade ? styles.fadeIn : styles.fadeOut} ${
+        selectedProject !== null ? styles.focusMode : ""
+      }`}
+    >
+      {projects.map((project) => (
+        <div
+          key={project.id}
+          className={`${styles.gridItem} ${
+            selectedProject === project.id ? styles.selected : ""
+          }`}
+          onClick={() => handleCardClick(project.id)}
+        >
+          <ProjectCard {...project} />
+        </div>
       ))}
     </div>
   );

@@ -7,6 +7,7 @@
   /* Shades */
   --background: #ffffff;
   --background-shadow: #f0f0f0;
+  --background-overlay: #3333334f;
   --text-icon-primary: #171717;
   --text-icon-secondary: #4a4a4a;
 
@@ -43,6 +44,7 @@
 
     --background: #0a0a0a;
     --background-shadow: #000000;
+    --background-overlay: #3333334f;
 
     --text-icon-primary: #e3e8e9;
     --text-icon-secondary: #bbbbbb;
@@ -111,4 +113,23 @@ a {
   .container {
     width: 92%;
   }
+}
+
+.navbarContainer {
+  width: 90%;
+  max-width: calc(950px - var(--padding-xl));
+  margin: 0 auto;
+  height: auto;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
