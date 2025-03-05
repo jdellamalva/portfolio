@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function CanvasMapSquare() {
+interface CanvasMapSquareProps {
+  showImage: boolean;
+}
+
+export default function CanvasMapSquare({
+  showImage = false,
+}: CanvasMapSquareProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [lineOffsetPercentage, setLineOffsetPercentage] = useState(50.0); // Default to center (50.0%)
 
@@ -57,34 +63,38 @@ export default function CanvasMapSquare() {
 
   return (
     <div>
-      <canvas
-        ref={canvasRef}
-        style={{
-          display: "block",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-        }}
-      />
-      <input
-        type="number"
-        min="0.0"
-        max="100.0"
-        step="0.1"
-        value={lineOffsetPercentage}
-        onChange={(e) => setLineOffsetPercentage(parseFloat(e.target.value))}
-        style={{
-          position: "absolute",
-          top: 20,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 10,
-          width: "80px",
-          textAlign: "center",
-        }}
-      />
+      {showImage && (
+        <canvas
+          ref={canvasRef}
+          style={{
+            display: "block",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+          }}
+        />
+      )}
+      {showImage && (
+        <input
+          type="number"
+          min="0.0"
+          max="100.0"
+          step="0.1"
+          value={lineOffsetPercentage}
+          onChange={(e) => setLineOffsetPercentage(parseFloat(e.target.value))}
+          style={{
+            position: "absolute",
+            top: 20,
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10,
+            width: "80px",
+            textAlign: "center",
+          }}
+        />
+      )}
     </div>
   );
 }

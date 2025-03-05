@@ -30,3 +30,13 @@
   color: var(--text-icon-primary);
   font-weight: var(--font-bold);
 }
+
+.glassEffect {
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.2); /* Dark semi-transparent background */
+  backdrop-filter: blur(4px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(1px);
+  color: white; /* Ensure text remains visible */
+  border-radius: 0 0 20px 20px; /* Rounded corners */
+  border-top: none;
+}

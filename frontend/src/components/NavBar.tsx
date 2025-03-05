@@ -27,7 +27,12 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav ref={navRef} className={styles.nav}>
+    <nav
+      ref={navRef}
+      className={`${styles.nav} ${
+        pathname === "/about" ? styles.glassEffect : ""
+      }`}
+    >
       <ul>
         <li className={pathname === "/resume" ? styles.active : ""}>
           <Link href="/resume">Resume</Link>

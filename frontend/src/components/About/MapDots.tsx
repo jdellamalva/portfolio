@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 const CanvasMapSquare = dynamic(() => import("./CanvasMapSquare"), {
   ssr: false,
 });
-const DotGrid = dynamic(() => import("./DotGrid"), { ssr: false });
-const DotGrid2 = dynamic(() => import("./DotGrid2"), { ssr: false });
+const DotGrid = dynamic(() => import("./DotGrid/DotGrid"), { ssr: true });
 
 export default function MapDots() {
   const [imageData, setImageData] = useState<ImageData | null>(null);
+  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     const img = new Image();
@@ -32,8 +32,8 @@ export default function MapDots() {
 
   return (
     <>
-      {/* <CanvasMapSquare /> */}
-      {imageData && <DotGrid2 density={100} imageData={imageData} />}
+      {imageData && <DotGrid density={150} imageData={imageData} />}
+      {showImage && <CanvasMapSquare showImage={showImage} />}
     </>
   );
 }
