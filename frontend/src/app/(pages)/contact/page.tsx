@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Contact from "@/components/Contact/Contact";
+import Contact from "@/app/components/Contact/Contact";
 
 export const metadata: Metadata = {
   title: "JDM | Contact",

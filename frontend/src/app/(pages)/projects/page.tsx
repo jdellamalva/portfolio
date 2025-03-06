@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import ProjectGrid from "@/components/Projects/ProjectGrid";
+import ProjectGrid from "@/app/components/Projects/ProjectGrid";
 
 export const metadata: Metadata = {
   title: "JDM | Projects",

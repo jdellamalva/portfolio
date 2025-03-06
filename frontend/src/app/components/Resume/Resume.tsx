@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import styles from "./Resume.module.css";
-import type { ResumeProps } from "./";
+import type { ResumeProps } from ".";
 
 import TitleBar from "./TitleBar/TitleBar";
 import Experience from "./Experience/Experience";

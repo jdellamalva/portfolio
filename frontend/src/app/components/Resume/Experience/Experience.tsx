@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import styles from "./Experience.module.css";
 import BulletPoint from "../BulletPoint";
-import type { ExperienceProps } from "./"
+import type { ExperienceProps } from ".";
 
 export default function Experience({ data }: { data: ExperienceProps }) {
   const scrollableRef = useRef<HTMLDivElement>(null);

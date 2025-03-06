@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 
 import styles from "./BulletPoint.module.css";
-import type { BulletPointProps } from "./";
-
+import type { BulletPointProps } from ".";
 
 export default function BulletPoint({
   text,

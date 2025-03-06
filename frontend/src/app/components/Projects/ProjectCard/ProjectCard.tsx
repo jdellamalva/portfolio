@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import type { ProjectCardProps } from "./";
+import type { ProjectCardProps } from ".";
 import styles from "./ProjectCard.module.css";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import MapDots from "@/components/About/MapDots";
+import MapDots from "@/app/components/About/MapDots/MapDots";
 
 export const metadata: Metadata = {
   title: "JDM | About",

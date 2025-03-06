@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Resume from "@/components/Resume/Resume";
+import Resume from "@/app/components/Resume/Resume";
 
 export const metadata: Metadata = {
   title: "JDM | Resume",
