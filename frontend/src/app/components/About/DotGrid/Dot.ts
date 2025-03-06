@@ -131,4 +131,26 @@ export default class Dot {
     ctx.fillStyle = this.getColor(imageData, time);
     ctx.fill();
   }
+
+  // TODO: verify method functionality and review WebGL API
+  drawWebGL(
+    gl: WebGLRenderingContext,
+    buffer: WebGLBuffer,
+    program: WebGLProgram
+  ) {
+    // Bind the buffer and set up attributes for WebGL
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+
+    // Assume `a_Position` is the attribute location for the vertex shader
+    const a_Position = gl.getAttribLocation(program, "a_Position");
+    gl.vertexAttribPointer(a_Position, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Position);
+
+    // Set color uniform if needed
+    const u_Color = gl.getUniformLocation(program, "u_Color");
+    gl.uniform4f(u_Color, 1.0, 0.5, 0.2, 1.0); // Example RGBA color
+
+    // Draw point
+    gl.drawArrays(gl.POINTS, 0, 1);
+  }
 }

@@ -1,18 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 
 import styles from "./MapDots.module.css";
 
-import { useCanvas } from "@/app/hooks/useCanvas";
-
-const MercatorMap = dynamic(() => import("../MercatorMap"), {
-  ssr: false,
-});
-const DotGrid = dynamic(() => import("../DotGrid"), { ssr: true });
+import DotGrid from "../DotGrid";
 
 export default function MapDots() {
+  const [renderer, setRenderer] = useState<"canvas" | "webgl">("canvas");
   const [showImage, setShowImage] = useState(false);
   const [density, setDensity] = useState(0.95);
   const [dotRadius, setDotRadius] = useState(4);
@@ -26,11 +21,22 @@ export default function MapDots() {
       <DotGrid
         density={density}
         dotRadius={dotRadius}
+        showImage={showImage}
+        renderer={renderer}
         onFpsUpdate={setFps}
         onDotCountUpdate={setDotCount}
       />
-      {showImage && <MercatorMap />}
       <div className={styles.controlPanel}>
+        <div className={styles.controlRow}>
+          <label>Renderer:</label>
+          <select
+            value={renderer}
+            onChange={(e) => setRenderer(e.target.value as "canvas" | "webgl")}
+          >
+            <option value="canvas">Canvas</option>
+            <option value="webgl">WebGL</option>
+          </select>
+        </div>
         <div className={styles.controlRow}>
           <label>FPS:</label>
           <span>{debouncedFps}</span>

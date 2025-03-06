@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
-export function useCanvas(
-  drawCallback: (ctx: CanvasRenderingContext2D, time: number) => void,
+export function useWebGL(
+  drawCallback: (gl: WebGLRenderingContext, time: number) => void,
   onResize?: () => void
 ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,10 +16,14 @@ export function useCanvas(
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
+      const gl = canvas.getContext("webgl");
+      if (!gl) {
+        console.error("WebGL not supported in this browser.");
+        return;
+      }
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      gl.clearColor(0, 0, 0, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
 
       const delta = Math.max(16, time - lastFrameTimeRef.current);
       lastFrameTimeRef.current = time;
@@ -34,7 +38,7 @@ export function useCanvas(
         }
       }
 
-      drawCallback(ctx, time);
+      drawCallback(gl, time);
       animationFrameRef.current = requestAnimationFrame(draw);
     },
     [drawCallback]
@@ -62,25 +66,8 @@ export function useCanvas(
     };
   }, [draw, onResize]);
 
-  const drawTiledImage = (
-    ctx: CanvasRenderingContext2D,
-    image: HTMLImageElement
-  ) => {
-    if (!image) return;
+  // TODO: Implement drawTiledImage function & return it
+  // const drawTiledImage = (gl: WebGLRenderingContext, image: HTMLImageElement) => {...};
 
-    const { innerWidth, innerHeight } = window;
-    const imgAspectRatio = image.width / image.height;
-    const tileHeight = innerHeight;
-    const tileWidth = tileHeight * imgAspectRatio;
-
-    const numTilesEachSide = Math.ceil(innerWidth / (2 * tileWidth));
-    const centerTileX = innerWidth / 2 - tileWidth / 2;
-
-    for (let i = -numTilesEachSide; i <= numTilesEachSide; i++) {
-      const tileX = centerTileX + i * tileWidth;
-      ctx.drawImage(image, tileX, 0, tileWidth, tileHeight);
-    }
-  };
-
-  return { canvasRef, fps: renderFps, drawTiledImage };
+  return { canvasRef, fps: renderFps };
 }

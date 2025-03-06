@@ -1,21 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { use, useEffect, useRef } from "react";
 import styles from "./DotGrid.module.css";
 import type { DotGridProps } from "./DotGrid.types";
 
 import { useImageLoader } from "@/app/hooks/useImageLoader";
 import { useCanvas } from "@/app/hooks/useCanvas";
 
+// TODO: Implement useWebGL hook
+// import { useWebGL } from "@/app/hooks/useWebGL";
+
 import Dot from "./Dot";
 
 export default function DotGrid({
   density,
   dotRadius,
+  showImage,
+  renderer,
   onFpsUpdate,
   onDotCountUpdate,
 }: DotGridProps) {
-  const { imageData, getWrappedCoordinates } = useImageLoader(
+  const { imageData, image, getWrappedCoordinates } = useImageLoader(
     "/Mercator_projection_Square_cropped.jpg"
   );
 
@@ -52,8 +57,19 @@ export default function DotGrid({
     setupGrid();
   }, [density, dotRadius, imageData]);
 
-  const { canvasRef, fps } = useCanvas((ctx, time) => {
+  // TODO: Implement useWebGL hook, and load conditionally
+  //   const { canvasRef, fps } =
+  //   renderer === "canvas"
+  //     ? useCanvas((ctx, time) => {...},
+  //     : useWebGL((gl, time) => {...});
+
+  const { canvasRef, fps, drawTiledImage } = useCanvas((ctx, time) => {
     if (!imageData || !dotsRef.current || dotsRef.current.size === 0) return;
+
+    if (showImage && image) {
+      drawTiledImage(ctx, image);
+    }
+
     for (const dot of dotsRef.current) {
       dot.draw(ctx, time, imageData);
     }
