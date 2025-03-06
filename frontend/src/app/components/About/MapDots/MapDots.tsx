@@ -1,9 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 import styles from "./MapDots.module.css";
+
+import { useCanvas } from "@/app/hooks/useCanvas";
 
 const MercatorMap = dynamic(() => import("../MercatorMap"), {
   ssr: false,
@@ -14,18 +16,28 @@ export default function MapDots() {
   const [showImage, setShowImage] = useState(false);
   const [density, setDensity] = useState(0.95);
   const [dotRadius, setDotRadius] = useState(4);
+  const [dotCount, setDotCount] = useState(0);
   const [fps, setFps] = useState(0);
 
   const debouncedFps = useMemo(() => fps, [Math.floor(fps / 5)]);
 
   return (
     <>
-      <DotGrid density={density} dotRadius={dotRadius} onFpsUpdate={setFps} />
+      <DotGrid
+        density={density}
+        dotRadius={dotRadius}
+        onFpsUpdate={setFps}
+        onDotCountUpdate={setDotCount}
+      />
       {showImage && <MercatorMap />}
       <div className={styles.controlPanel}>
         <div className={styles.controlRow}>
           <label>FPS:</label>
           <span>{debouncedFps}</span>
+        </div>
+        <div className={styles.controlRow}>
+          <label>Dot Count:</label>
+          <span>{dotCount}</span>{" "}
         </div>
         <div className={styles.controlRow}>
           <label>Density:</label>
@@ -37,12 +49,14 @@ export default function MapDots() {
           max="1"
           step="0.01"
           value={density}
-          onChange={(e) => setDensity(parseFloat(e.target.value))}
+          onChange={(e) => {
+            setDensity(parseFloat(e.target.value));
+          }}
         />
 
         <div className={styles.controlRow}>
           <label>Dot Radius:</label>
-          <span>{dotRadius}</span>
+          <span>{dotRadius.toFixed(2)}</span>
         </div>
         <input
           type="range"
@@ -50,7 +64,9 @@ export default function MapDots() {
           max="10"
           step="0.25"
           value={dotRadius}
-          onChange={(e) => setDotRadius(parseFloat(e.target.value))}
+          onChange={(e) => {
+            setDotRadius(parseFloat(e.target.value));
+          }}
         />
         <div className={styles.controlRow}>
           <label>Show Image:</label>

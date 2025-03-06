@@ -13,6 +13,7 @@ export default function DotGrid({
   density,
   dotRadius,
   onFpsUpdate,
+  onDotCountUpdate,
 }: DotGridProps) {
   const { imageData, getWrappedCoordinates } = useImageLoader(
     "/Mercator_projection_Square_cropped.jpg"
@@ -22,6 +23,12 @@ export default function DotGrid({
 
   const setupGrid = () => {
     if (!imageData) return;
+
+    if (density <= 0) {
+      dotsRef.current.clear();
+      if (onDotCountUpdate) onDotCountUpdate(0);
+      return;
+    }
 
     const spacing = density > 0 ? (2 * dotRadius) / density : Infinity;
 
@@ -35,6 +42,10 @@ export default function DotGrid({
     }
 
     dotsRef.current = newDots;
+
+    if (onDotCountUpdate) {
+      onDotCountUpdate(newDots.size);
+    }
   };
 
   useEffect(() => {

@@ -62,6 +62,7 @@ export default class Dot {
   x: number;
   y: number;
   radius: number;
+  private type: "land" | "sea" | null = null;
   private color: string | null = null;
   private lastImageData: ImageData | null = null;
 
@@ -71,13 +72,7 @@ export default class Dot {
     this.radius = radius;
   }
 
-  private getColor(imageData: ImageData, time: number): string {
-    if (this.color && this.lastImageData === imageData) {
-      return this.color;
-    }
-
-    this.lastImageData = imageData;
-
+  private determineType(imageData: ImageData) {
     const { innerWidth, innerHeight } = window;
 
     const imgAspectRatio = imageData.width / imageData.height;
@@ -103,21 +98,31 @@ export default class Dot {
       a: imageData.data[index + 3] / 255,
     };
 
-    let dotType: "sea" | "land" = "land";
+    this.type =
+      rgba.b > rgba.r + ICE_OFFSET && rgba.b > rgba.g + ICE_OFFSET
+        ? "sea"
+        : "land";
 
-    if (rgba.b > rgba.r + ICE_OFFSET && rgba.b > rgba.g + ICE_OFFSET) {
-      dotType = "sea";
+    if (this.type === "land") {
+      this.color = toColorString(
+        computeImageColor(wrappedX, wrappedY, imageData)
+      );
+    }
+  }
+
+  private getColor(imageData: ImageData, time: number): string {
+    if (this.lastImageData !== imageData) {
+      this.determineType(imageData);
+      this.lastImageData = imageData;
     }
 
-    switch (dotType) {
-      case "sea":
-        return toColorString(
-          OCEAN.getColorAtPoint(computeAmplitude(this.x, this.y, time))
-        );
-      case "land":
-      default:
-        return toColorString(computeImageColor(wrappedX, wrappedY, imageData));
+    if (this.type === "sea") {
+      return toColorString(
+        OCEAN.getColorAtPoint(computeAmplitude(this.x, this.y, time))
+      );
     }
+
+    return this.color!;
   }
 
   draw(ctx: CanvasRenderingContext2D, time: number, imageData: ImageData) {
