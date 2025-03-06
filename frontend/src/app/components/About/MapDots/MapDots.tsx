@@ -1,9 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
-
-import { useCanvas } from "@/app/hooks/useCanvas";
+import { useState, useMemo } from "react";
 
 import styles from "./MapDots.module.css";
 
@@ -18,6 +16,8 @@ export default function MapDots() {
   const [dotRadius, setDotRadius] = useState(4);
   const [fps, setFps] = useState(0);
 
+  const debouncedFps = useMemo(() => fps, [Math.floor(fps / 5)]);
+
   return (
     <>
       <DotGrid density={density} dotRadius={dotRadius} onFpsUpdate={setFps} />
@@ -25,7 +25,7 @@ export default function MapDots() {
       <div className={styles.controlPanel}>
         <div className={styles.controlRow}>
           <label>FPS:</label>
-          <span>{fps}</span>
+          <span>{debouncedFps}</span>
         </div>
         <div className={styles.controlRow}>
           <label>Density:</label>

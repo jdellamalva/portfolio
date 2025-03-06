@@ -62,6 +62,8 @@ export default class Dot {
   x: number;
   y: number;
   radius: number;
+  private color: string | null = null;
+  private lastImageData: ImageData | null = null;
 
   constructor(x: number, y: number, radius: number) {
     this.x = x;
@@ -70,6 +72,12 @@ export default class Dot {
   }
 
   private getColor(imageData: ImageData, time: number): string {
+    if (this.color && this.lastImageData === imageData) {
+      return this.color;
+    }
+
+    this.lastImageData = imageData;
+
     const { innerWidth, innerHeight } = window;
 
     const imgAspectRatio = imageData.width / imageData.height;

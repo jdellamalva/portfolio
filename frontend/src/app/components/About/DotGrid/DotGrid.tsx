@@ -24,21 +24,12 @@ export default function DotGrid({
     if (!imageData) return;
 
     const spacing = density > 0 ? (2 * dotRadius) / density : Infinity;
-    const BUFFER = spacing * 2;
 
     const { innerWidth, innerHeight } = window;
     const newDots = new Set<Dot>();
 
-    for (
-      let x = ((innerWidth / 2) % spacing) - BUFFER;
-      x < innerWidth + BUFFER;
-      x += spacing
-    ) {
-      for (
-        let y = ((innerHeight / 2) % spacing) - BUFFER;
-        y < innerHeight + BUFFER;
-        y += spacing
-      ) {
+    for (let x = (innerWidth / 2) % spacing; x < innerWidth; x += spacing) {
+      for (let y = (innerHeight / 2) % spacing; y < innerHeight; y += spacing) {
         newDots.add(new Dot(x, y, dotRadius));
       }
     }

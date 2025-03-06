@@ -7,9 +7,9 @@ export function useCanvas(
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | null>(null);
   const lastFrameTimeRef = useRef<number>(performance.now());
-  const frameCountRef = useRef<number>(0);
   const fpsRef = useRef<number>(0);
-  const [, setRenderFps] = useState(0);
+  const [renderFps, setRenderFps] = useState(0);
+  const lastFpsUpdateRef = useRef<number>(performance.now());
 
   const draw = useCallback(
     (time: number) => {
@@ -21,20 +21,16 @@ export function useCanvas(
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const delta = lastFrameTimeRef.current
-        ? time - lastFrameTimeRef.current
-        : 16;
+      const delta = Math.max(16, time - lastFrameTimeRef.current);
       lastFrameTimeRef.current = time;
 
       if (delta > 0) {
         const currentFps = 1000 / delta;
-
-        frameCountRef.current += 1;
         fpsRef.current = fpsRef.current * 0.9 + currentFps * 0.1;
 
-        if (frameCountRef.current >= 10) {
+        if (performance.now() - lastFpsUpdateRef.current >= 500) {
           setRenderFps(Math.round(fpsRef.current));
-          frameCountRef.current = 0;
+          lastFpsUpdateRef.current = performance.now();
         }
       }
 
@@ -66,5 +62,5 @@ export function useCanvas(
     };
   }, [draw, onResize]);
 
-  return { canvasRef, fps: Math.round(fpsRef.current) };
+  return { canvasRef, fps: renderFps };
 }
