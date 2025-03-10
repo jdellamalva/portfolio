@@ -1,11 +1,21 @@
 "use client";
 
-import { use, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+
 import styles from "./DotGrid.module.css";
 import type { DotGridProps } from "./DotGrid.types";
 
-import { useImageLoader } from "@/app/hooks/useImageLoader";
-import { useCanvas } from "@/app/hooks/useCanvas";
+import useImageLoader from "@/app/hooks/useImageLoader";
+import useCanvas from "@/app/hooks/useCanvas";
+import useWebGL from "@/app/hooks/useWebGL";
+
+const DynamicThreeCanvas = dynamic(
+  () => import("@react-three/fiber").then((mod) => mod.Canvas),
+  { ssr: false }
+);
+
+import { Canvas } from "@react-three/fiber";
 
 // TODO: Implement useWebGL hook
 // import { useWebGL } from "@/app/hooks/useWebGL";
@@ -20,7 +30,7 @@ export default function DotGrid({
   onFpsUpdate,
   onDotCountUpdate,
 }: DotGridProps) {
-  const { imageData, image, getWrappedCoordinates } = useImageLoader(
+  const { imageData, image } = useImageLoader(
     "/Mercator_projection_Square_cropped.jpg"
   );
 
@@ -58,10 +68,9 @@ export default function DotGrid({
   }, [density, dotRadius, imageData]);
 
   // TODO: Implement useWebGL hook, and load conditionally
-  //   const { canvasRef, fps } =
+  //   const { canvasRef, fps, drawTiledImage } =
   //   renderer === "canvas"
-  //     ? useCanvas((ctx, time) => {...},
-  //     : useWebGL((gl, time) => {...});
+  //     ? useCanvas((ctx, time) => {...}, setupGrid)
 
   const { canvasRef, fps, drawTiledImage } = useCanvas((ctx, time) => {
     if (!imageData || !dotsRef.current || dotsRef.current.size === 0) return;
@@ -81,5 +90,9 @@ export default function DotGrid({
     }
   }, [fps, onFpsUpdate]);
 
-  return <canvas ref={canvasRef} className={styles.dotGrid} />;
+  return renderer === "canvas" ? (
+    <canvas ref={canvasRef} className={styles.dotGrid} />
+  ) : (
+    <Canvas></Canvas>
+  );
 }

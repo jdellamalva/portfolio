@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 
-export function useImageLoader(imageSrc: string) {
+export default function useImageLoader(imageSrc: string) {
   const [imageData, setImageData] = useState<ImageData | null>(null);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [tileWidth, setTileWidth] = useState<number | null>(null);

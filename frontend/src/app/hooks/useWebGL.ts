@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
-export function useWebGL(
+export default function useWebGL(
   drawCallback: (gl: WebGLRenderingContext, time: number) => void,
   onResize?: () => void
 ) {

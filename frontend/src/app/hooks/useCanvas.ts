@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
-export function useCanvas(
+export default function useCanvas(
   drawCallback: (ctx: CanvasRenderingContext2D, time: number) => void,
   onResize?: () => void
 ) {
