@@ -1,0 +1,61 @@
+/* Ensure the container fills the entire viewport */
+:root {
+  --square-size: 100px;
+  --shape-width: 10px;
+  --shape-height: 40px;
+  --shape-gap: 40px;
+  --circle-radius: calc(var(--shape-height) * 2);
+  --deflection: -1.5;
+  --num-shape-pairs: 6;
+  --rotation-step: calc(
+    360deg / var(--num-shape-pairs)
+  ); /* Rotation per shapePair */
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e1e1e;
+  overflow: hidden;
+  position: relative;
+}
+
+.shapePairs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shapePair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--shape-gap);
+  justify-content: space-between;
+  position: absolute;
+  --index: 0;
+  transform: rotate(calc(var(--rotation-step) * var(--index)));
+}
+
+.shape {
+  width: var(--shape-width);
+  height: var(--shape-height);
+  background: white;
+  border-radius: 10%;
+  animation: translateShapePair 4s infinite;
+}
+
+@keyframes translateShapePair {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--shape-height) * var(--deflection)));
+  }
+}
