@@ -1,28 +1,74 @@
 [
-    {
-      "id": 1,
-        "title": "This Portfolio",
-      "description": "A personal portfolio built in NextJS and Typescript.",
-      "mediaType": "gif",
-      "mediaSrc": "/gifs/boom-mind-blown.gif"
-    },
-    {
-        "id": 2,
-      "title": "Run Like Hell",
-      "description": "Work in progress: a rail-runner platform game to teach myself C# and Unity.",
-      "mediaType": "none"
-    },
-    {
-        "id": 3,
-      "title": "Untitled Recipe App",
-      "description": "A recipe application I'm making to teach myself React Native.",
-      "mediaType": "none"
-    },
-    {
-        "id": 4,
-      "title": "Untitled Assistant App",
-      "description": "An agentic LLM chat wrapper leveraging a Firebase serverless setup.",
-      "mediaType": "none"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "This Portfolio",
+    "description": "A personal portfolio built with Next.js and TypeScript, showcasing my journey into full-stack development. I'm currently designing an interactive About page to make the site more dynamic and personal.",
+    "mediaType": "none"
+  },
+  {
+    "id": 2,
+    "title": "Untitled Recipe App",
+    "description": "A mobile app in development using React Native, designed to let users create, modify, and share recipes with customizable portion sizes and integrated nutrition information. I'm using this project to build fluency with React Native and mobile-first design.",
+    "mediaType": "none"
+  },
+  {
+    "id": 3,
+    "title": "Space Junker",
+    "description": "A 2D sandbox game inspired by *Terraria*, built in Unity and C#. I'm using it to explore procedural generation, tile-based physics, and custom fluid simulations. The world is built using layered noise, elemental composition, and real-time rendering optimization.",
+    "mediaType": "none"
+  },
+  {
+    "id": 4,
+    "title": "Dungeons & Dragons",
+    "description": "I'm an avid D&D player, dungeon master, and miniature painter. My most recent campaign features a complex interplanar narrative based in Sigil, the City of Doors. I bring worldbuilding, storytelling, and creative problem-solving into every session.",
+    "mediaType": "none"
+  },
+  {
+    "id": 5,
+    "title": "LeetCode",
+    "description": "Daily practice of data structures and algorithms, currently maintaining a 50+ day streak. It's a key part of leveling up my coding fluency and preparing for more technical interviews.",
+    "mediaType": "none"
+  },
+  {
+    "id": 6,
+    "title": "Languages",
+    "description": "I'm actively studying Italian and Swedish, primarily through Duolingo, where I currently maintain a streak of over 1200 days. Language learning is part of my commitment to personal growth and cultural fluency.",
+    "mediaType": "none"
+  },
+  {
+    "id": 7,
+    "title": "PMI Certification",
+    "description": "I'm currently completing coursework toward a PMI certification through the Project Management Institute to enhance my qualifications as a project manager and business analyst.",
+    "mediaType": "none"
+  },
+  {
+    "id": 8,
+    "title": "Certified Scrum Master",
+    "description": "Earned my Certified Scrum Master (CSM) credential from the Scrum Alliance in March 2025. This certification supports my work in Agile environments, product ownership, and cross-functional collaboration.",
+    "mediaType": "none"
+  },
+  {
+    "id": 9,
+    "title": "Google Project Manager",
+    "description": "Completed the Google Project Management Certificate on Coursera in February 2025. The program provided hands-on experience in Agile methodology, risk management, stakeholder engagement, and team leadership.",
+    "mediaType": "none"
+  },
+  {
+    "id": 10,
+    "title": "Relational Databases",
+    "description": "Completed the Relational Databases certification from freeCodeCamp in March 2025. Currently exploring Oracle PL/SQL as I pursue Oracle Certified Professional status.",
+    "mediaType": "none"
+  },
+  {
+    "id": 11,
+    "title": "Full Stack Web Dev (MERN)",
+    "description": "Completed a certificate in Full Stack Web Development (MERN stack) from MIT xPRO in 2024. I'm now applying those skills in personal projects, including this portfolio.",
+    "mediaType": "none"
+  },
+  {
+    "id": 12,
+    "title": "Bristol Hospice",
+    "description": "Currently volunteering with Bristol Hospice in Stockton, CA, offering compassionate care, companionship, and support to individuals and families navigating end-of-life transitions.",
+    "mediaType": "none"
+  }
+]

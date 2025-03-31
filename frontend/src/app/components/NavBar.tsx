@@ -37,14 +37,8 @@ export default function NavBar() {
         <li className={pathname === "/resume" ? styles.active : ""}>
           <Link href="/resume">Resume</Link>
         </li>
-        <li className={pathname === "/about" ? styles.active : ""}>
-          <Link href="/about">About</Link>
-        </li>
         <li className={pathname === "/projects" ? styles.active : ""}>
           <Link href="/projects">Projects</Link>
-        </li>
-        <li className={pathname === "/contact" ? styles.active : ""}>
-          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </nav>

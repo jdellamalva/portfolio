@@ -2,14 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   position: relative;
 }
 
 .gridItem {
   user-select: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 8px;
   overflow: hidden;
   transition: flex-basis 0.3s ease-in-out, transform 0.3s ease-in-out,

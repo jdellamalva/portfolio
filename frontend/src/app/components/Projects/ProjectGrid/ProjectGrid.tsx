@@ -37,7 +37,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = () => {
           className={`${styles.gridItem} ${
             selectedProject === project.id ? styles.selected : ""
           }`}
-          onClick={() => handleCardClick(project.id)}
+          //   onClick={() => handleCardClick(project.id)}
         >
           <ProjectCard {...project} />
         </div>

@@ -1,178 +1,362 @@
 {
-    "name": "Joseph D. Della Malva",
-    "headline": "Project Manager • Business Analyst • Educator",
-    "location": "Based in Lodi, CA",
-    "email": "jdellamalva@gmail.com",
-    "phone": "(650) 686-9406",
-    "website": "linkedin.com/in/jdellamalva/",
-    "summary": "IT & education professional with a background in team management, software solutions, business operations and curriculum design. Skilled in Agile project management, full-stack development, and fostering communication to achieve success in challenging environments. Recognized for leadership, adaptability, attention to detail and drive.",
-    "experience": [
-      {
-        "id": "0",
-        "category": "Work",
-        "title": "Business Analyst",
-        "employer": "Applied Imagination",
-        "location": "Norcross, GA (Remote)",
-        "start": "September 2021",
-        "end": "January 2025",
-        "bulletPoints": [
-          {
-            "text": "Contributed over {0} as Senior Business Analyst, UI/UX Designer & QA, driving {1}",
-            "highlights": ["40 projects", "$3M+ in revenue"]
-          },
-          {
-            "text": "Supported a range of clients, from {0} to {1}, spanning industries such as manufacturing, e-commerce, education, HR, engineering, research & social media",
-            "highlights": ["startups", "globally recognized brands"]
-          },
-          {
-            "text": "Translated client requirements into full design systems, componentized wireframes, and interactive prototypes using {0}, improving stakeholder alignment and reducing development iteration time",
-            "highlights": ["Figma"]
-          },
-          {
-            "text": "Leveraged {0} methodologies and tools like {1} to prioritize stakeholder needs effectively, groom backlogs, bridge gaps, organize sprints, and resolve blockers",
-            "highlights": ["Waterfall & Agile (Scrum)", "Jira, Confluence, and Asana"]
-          },
-          {
-            "text": "Collaborated with {0} at all stages in the {1} to deliver custom mobile and web applications, WordPress sites, and legacy software support",
-            "highlights": ["cross-functional teams", "Software Development Life Cycle (SDLC)"]
-          },
-          {
-            "text": "Defined and executed comprehensive test cases and led {0} workshops",
-            "highlights": ["User Acceptance Testing"]
-          },
-          {
-            "text": "Earned consistent commendations from clients and colleagues for {0}, {1}, and {2}, even in challenging project environments",
-            "highlights": ["exceptional attention to detail", "strong interpersonal skills", "proactive problem-solving"]
-          }
-        ]
-      },
-      {
-        "id": "1",
-        "category": "Work",
-        "title": "Director",
-        "employer": "Liberty Language Academy",
-        "location": "Orlando, FL",
-        "start": "August 2016",
-        "end": "September 2021",
-        "bulletPoints": [
-          {
-            "text": "Founded, owned, and operated a private language school, scaling to over {0}, driving {1}",
-            "highlights": ["$200,000 annual net profit", "long-term growth and sustainability"]
-          },
-          {
-            "text": "Developed a complete English language curriculum from {0} to {1}, ensuring a structured path to fluency",
-            "highlights": ["absolute beginner", "near-native proficiency"]
-          },
-          {
-            "text": "Conducted {0} certification and ongoing training for a team of {1}, fostering continuous professional development",
-            "highlights": ["TESOL", "10-20 teachers and 3-5 administrators"]
-          },
-          {
-            "text": "Designed and built a custom {0} using {1}, then acted as Product Owner to scale it into a web application",
-            "highlights": ["ERP Student Management System & relational database", "Airtable"]
-          },
-          {
-            "text": "Led the school to achieve {0} after only {1}, the best possible initial result for a private institution",
-            "highlights": ["a 5-year initial accreditation from CEA", "2 years of operations"]
-          },
-          {
-            "text": "Secured {0} certification from {1}, enabling enrollment of {2}",
-            "highlights": ["SEVP", "DHS", "international F-1 visa students"]
-          },
-          {
-            "text": "Matriculated over {0} and managed over {1} as {2}, ensuring compliance and student success",
-            "highlights": ["800 students", "200 international students", "Primary Designated School Official"]
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "category": "Work",
-        "title": "Teacher",
-        "employer": "Trinity Preparatory School",
-        "location": "Winter Park, FL",
-        "start": "August 2017",
-        "end": "June 2018",
-        "bulletPoints": [
-          {
-            "text": "Taught {0} at a private school top-ranked in {1}, fostering academic excellence",
-            "highlights": ["7th and 8th grade life and physical science", "STEM"]
-          },
-          {
-            "text": "Led the {0}, achieving {1} for every student at the {2}",
-            "highlights": ["Science Fair Club", "100% medal placement", "regional competition"]
-          },
-          {
-            "text": "Coached the {0} to a {1} at {2} and {3} at the {4}, demonstrating strong mentorship and leadership",
-            "highlights": ["Science Olympiad team", "3rd place regional finish", "regional level", "14th place", "state level"]
-          }
-        ]
-      },
-      {
-        "id": "3",
-        "category": "Work",
-        "title": "Teacher",
-        "employer": "South Creek Middle School",
-        "location": "Orlando, FL",
-        "start": "March 2013",
-        "end": "June 2017",
-        "bulletPoints": [
-          {
-            "text": "Taught {0} at a {1}, delivering engaging STEM instruction",
-            "highlights": ["middle grades (6–8) science", "high-poverty Title I school (>75% free/reduced lunch)"]
-          },
-          {
-            "text": "Served as {0} for {1}, mentoring students in leadership and academic excellence",
-            "highlights": ["National Junior Honor Society Advisor", "2 years"]
-          },
-          {
-            "text": "Secured over {0} in grants for {1}, enhancing classroom resources and student learning",
-            "highlights": ["$7,000", "STEM equipment and reading materials"]
-          },
-          {
-            "text": "Awarded {0} in my first year for {1}, establishing a strong reputation for educational impact",
-            "highlights": ["‘Teacher of the Year’", "innovative and engaging science education"]
-          },
-          {
-            "text": "Awarded the {0} for {1}, recognizing outstanding teaching performance",
-            "highlights": ["$10,000 Florida Best & Brightest Scholarship", "excellent qualifications and evaluation results"]
-          },
-          {
-            "text": "Managed the {0} for {1}, coaching {2} across {3}, achieving {4} out of {5} teams each year",
-            "highlights": ["Science Olympiad team", "2 years", "teams of 15 students", "23 STEM-focused events", "15th & 10th place finishes", "40+"]
-          },
-          {
-            "text": "Coordinated the {0}, achieving {1} across {2}, amounting to about {3} annually",
-            "highlights": ["school-wide science fair", "80-90% participation", "grades 6-8", "900 students"]
-          }
-        ]
-      },
-      {
-        "id": "4",
-        "category": "Work",
-        "title": "Academic Coordinator",
-        "employer": "Uceda School of Orlando",
-        "location": "Orlando, FL",
-        "start": "June 2008",
-        "end": "January 2014",
-        "bulletPoints": [
-          {
-            "text": "Taught {0} to students ranging from {1} to {2}, ensuring tailored language instruction",
-            "highlights": ["English as a foreign language", "beginners", "near-native fluency"]
-          },
-          {
-            "text": "Served as {0}, contributing to the school’s {1} and ensuring compliance with {2}",
-            "highlights": ["CEA Self-Study Coordinator", "initial institutional accreditation", "accreditation standards"]
-          },
-          {
-            "text": "Managed {0} across {1}, ensuring operational efficiency and student success",
-            "highlights": ["student and teacher assignments", "two institution branches"]
-          },
-          {
-            "text": "Trained and supported {0}, fostering {1} and maintaining instructional quality",
-            "highlights": ["new teachers", "instructional consistency"]
-          }
-        ]
-      }    
-    ]
-  }
+  "name": "Joseph D. Della Malva",
+  "headline": "Project Manager • Business Analyst • Educator",
+  "location": "Based in Lodi, CA",
+  "email": "jdellamalva@gmail.com",
+  "phone": "(650) 686-9406",
+  "website": "linkedin.com/in/jdellamalva/",
+  "summary": "IT & education professional with a background in team management, software solutions, business operations and curriculum design. Skilled in Agile project management, full-stack development, and fostering communication to achieve success in challenging environments. Recognized for leadership, adaptability, attention to detail and drive.",
+  "experience": [
+    {
+      "id": "0",
+      "category": "Work",
+      "title": "Business Analyst",
+      "employer": "Applied Imagination",
+      "location": "Norcross, GA (Remote)",
+      "start": "September 2021",
+      "end": "January 2025",
+      "bulletPoints": [
+        {
+          "text": "Mapped {0} and {1}, working with {2}, {3}, and {4} to define {5} and align {6} with business goals",
+          "highlights": [
+            "business processes",
+            "system requirements",
+            "stakeholders",
+            "developers",
+            "product teams",
+            "scalable system architectures",
+            "technical solutions"
+          ]
+        },
+        {
+          "text": "Utilized {0} to create {1}, {2}, and user guides, ensuring projects remained within {3} while aligning {4} with contractual agreements and providing {5}",
+          "highlights": [
+            "Confluence, Figma, Jira and other tools",
+            "business requirement documentation",
+            "componentized wireframes",
+            "defined scope",
+            "stakeholder expectations",
+            "excellent customer service"
+          ]
+        },
+        {
+          "text": "Led {0} and quality assurance efforts, developing and executing {1} to validate system functionality, ensure stakeholder requirements were met, and {2}",
+          "highlights": [
+            "UAT workshops",
+            "test plans",
+            "resolve issues before deployment"
+          ]
+        },
+        {
+          "text": "Recognized by clients and colleagues for {0}, fostering {1} between technical- and non-technical teams in {2}",
+          "highlights": [
+            "strong soft skills",
+            "trust and communication",
+            "high-pressure environments"
+          ]
+        },
+        {
+          "text": "Contributed to over {0} across industries such as {1} as {2}, driving {3}; including:",
+          "highlights": [
+            "40 projects",
+            "manufacturing, e-commerce, HR, engineering, research & social media",
+            "Senior Business Analyst",
+            "$3M+ in company revenue"
+          ]
+        },
+        {
+          "text": "Consulted on {0} for a Lawyer-Focused Social Media Platform, leading {2}, {3}, and {4}, including spearheading the definition of a {5} for {6} and {7}",
+          "highlights": [
+            "system architecture",
+            "requirements gathering",
+            "design validation/iteration",
+            "Agile-driven product development",
+            "now-patented system",
+            "user-referral matchmaking",
+            "legal team optimization"
+          ]
+        },
+        {
+          "text": "Defined {0} for an Airline Fleet Valuation Web Application, transforming a {1} and API into a full-featured web platform with {2}, {3}, {4}, aircraft and fleet valuation and depreciation projections and an {5}",
+          "highlights": [
+            "business and functional requirements",
+            "proprietary data model",
+            "user role management",
+            "batch record processing",
+            "interactive data dashboards",
+            "admin workflow for processing custom report requests"
+          ]
+        },
+        {
+          "text": "Developed a {0} for a Property Maintenance Contractor, defining {1}, verifying {2}, and {3} {4}",
+          "highlights": [
+            "work order and invoice management system",
+            "user flows",
+            "legacy data migration",
+            "QA testing",
+            "QuickBooks billing integration"
+          ]
+        },
+        {
+          "text": "Developed a {0} for a Timber Research Nonprofit, facilitating {1}, {2} and {3}. Collaborated with developers to define {4} based on {5}, improving efficiency by reducing {6}",
+          "highlights": [
+            "web platform",
+            "legacy data migration",
+            "bulk data entry",
+            "report subscriptions",
+            "in-query data manipulation",
+            "client SOPs",
+            "repetitive tasks involved in quarterly report generation"
+          ]
+        },
+        {
+          "text": "Designed {0} for a small-business telehealth booking platform and admin portal, connecting {1} to {2} seeking medical guidance and therapy",
+          "highlights": [
+            "system architecture",
+            "licensed practitioners",
+            "users"
+          ]
+        },
+        {
+          "text": "Developed a {0} with a {1}, enabling {2}, {3}, {4}, and {5}. Conducted {6} using {7} to validate {8} and {9} against {10}",
+          "highlights": [
+            "multi-tenant mobile eCommerce platform",
+            "web-based admin portal",
+            "gift card purchases",
+            "cashback rewards",
+            "client-managed content",
+            "data segmentation",
+            "API testing",
+            "Postman",
+            "user onboarding and transactions",
+            "Swagger documentation"
+          ]
+        },
+        {
+          "text": "Developed an {0} for a {1} on {2}, allowing users to {3} and {4} applying {5}",
+          "highlights": [
+            "interactive eCommerce module",
+            "Landscaping Merchant",
+            "Shopify",
+            "define custom projects",
+            "dynamically generate shopping lists",
+            "automated discounts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "category": "Work",
+      "title": "Director",
+      "employer": "Liberty Language Academy",
+      "location": "Orlando, FL",
+      "start": "August 2016",
+      "end": "September 2021",
+      "bulletPoints": [
+        {
+          "text": "Founded, owned and operated a private language school, scaling to over {0}",
+          "highlights": ["$200,000 annual net profit"]
+        },
+        {
+          "text": "Developed a complete English language curriculum from {0} to {1}",
+          "highlights": ["absolute beginner", "near-native fluency"]
+        },
+        {
+          "text": "Conducted {0} certification and ongoing training for a team of {1}",
+          "highlights": ["TESOL", "10-20 teachers and 3-5 administrators"]
+        },
+        {
+          "text": "Designed and built a custom {0} using {1}, then acted as {2} alongside a development team to scale it into a {3}",
+          "highlights": [
+            "ERP Student Management System & relational database",
+            "Airtable",
+            "Product Owner",
+            "full PHP/Laravel web application"
+          ]
+        },
+        {
+          "text": "Defined and executed {0} using {1} to track {2} and optimize business practices, automating key functions such as {3}, {4}, {5}, {6}, {7}, and {8}",
+          "highlights": [
+            "SQL-like queries",
+            "Airtable and Google Visualization API Query Language",
+            "KPIs",
+            "enrollment forecasting",
+            "market analysis",
+            "student/faculty scheduling",
+            "textbook inventory",
+            "facilities management",
+            "compliance reporting"
+          ]
+        },
+        {
+          "text": "Led the school to achieve {0} after only {1}, the best possible initial result in the minimum time possible for a private institution",
+          "highlights": [
+            "a 5-year initial accreditation from the CEA",
+            "2 years of operations"
+          ]
+        },
+        {
+          "text": "Secured {0} certification from {1}, enabling enrollment of {2}",
+          "highlights": [
+            "school SEVP",
+            "DHS",
+            "international F-1 visa students"
+          ]
+        },
+        {
+          "text": "Matriculated over {0} and managed over {1} as {2}",
+          "highlights": [
+            "800 students",
+            "200 international students",
+            "Primary Designated School Official"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "category": "Work",
+      "title": "Teacher",
+      "employer": "Trinity Preparatory School",
+      "location": "Winter Park, FL",
+      "start": "August 2017",
+      "end": "June 2018",
+      "bulletPoints": [
+        {
+          "text": "Taught {0} at a {1}",
+          "highlights": [
+            "7th and 8th grade life and physical science",
+            "private school top-ranked in STEM"
+          ]
+        },
+        {
+          "text": "Led the {0}, achieving {1} for every student at the {2}",
+          "highlights": [
+            "Science Fair Club",
+            "100% medal placement",
+            "regional competition"
+          ]
+        },
+        {
+          "text": "Coached the {0} to a {1} and {2} at the {3}",
+          "highlights": [
+            "Science Olympiad team",
+            "3rd place regional finish",
+            "14th place",
+            "state level"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "category": "Work",
+      "title": "Teacher",
+      "employer": "South Creek Middle School",
+      "location": "Orlando, FL",
+      "start": "March 2013",
+      "end": "June 2017",
+      "bulletPoints": [
+        {
+          "text": "Taught {0} at a {1}",
+          "highlights": [
+            "middle grades (6–8) science",
+            "high-poverty Title I school (>75% students on free/reduced lunch)"
+          ]
+        },
+        {
+          "text": "Served as {0} for {1}, mentoring students in {2}",
+          "highlights": [
+            "National Junior Honor Society Advisor",
+            "2 years",
+            "academic leadership"
+          ]
+        },
+        {
+          "text": "Secured over {0} in grants for {1}",
+          "highlights": [
+            "$7,000",
+            "classroom STEM equipment and reading materials"
+          ]
+        },
+        {
+          "text": "Awarded {0} in my first year, for {1}",
+          "highlights": [
+            "‘Teacher of the Year’",
+            "innovative engaging science education"
+          ]
+        },
+        {
+          "text": "Awarded {0}, for {1}",
+          "highlights": [
+            "$10,000 Florida Best & Brightest Scholarship",
+            "excellent qualifications and evaluation results"
+          ]
+        },
+        {
+          "text": "Managed the school’s {0} for {1}, coaching {2} across {3}, reaching {4} out of {5} teams each year",
+          "highlights": [
+            "Science Olympiad team",
+            "2 years",
+            "teams of 15 students",
+            "23 STEM-focused events",
+            "15th & 10th place finishes",
+            "40+"
+          ]
+        },
+        {
+          "text": "Coordinated {0} for {1}, achieving {2} amounting to about {3} annually, and coached {4}",
+          "highlights": [
+            "school-wide science fair",
+            "grades 6–8",
+            "80–90% participation",
+            "900 students",
+            "county and state science fair teams"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "category": "Work",
+      "title": "Academic Coordinator",
+      "employer": "Uceda School of Orlando",
+      "location": "Orlando, FL",
+      "start": "June 2008",
+      "end": "January 2014",
+      "bulletPoints": [
+        {
+          "text": "Taught {0} to students ranging from {1} to {2}",
+          "highlights": [
+            "English as a foreign language",
+            "beginners",
+            "near-native fluency"
+          ]
+        },
+        {
+          "text": "Served as {0}, contributing to the school’s {1}",
+          "highlights": [
+            "CEA Self-Study Coordinator",
+            "initial institutional accreditation"
+          ]
+        },
+        {
+          "text": "Managed {0} across {1}",
+          "highlights": [
+            "student and teacher assignments",
+            "two institution branches"
+          ]
+        },
+        {
+          "text": "Trained and supported {0}, fostering {1} and maintaining {2}",
+          "highlights": [
+            "new teachers",
+            "instructional consistency",
+            "instructional quality"
+          ]
+        }
+      ]
+    }
+  ]
+}
